@@ -1,0 +1,13 @@
+"","match_number","team","scores","auto_gpp","auto_p","auto_dock","auto_balance","tele_gpp","tele_p","tele_dock","tele_balance"
+"1","1","red","22","6","6","None","Level","4","16","Park","Level"
+"2","6","red","65","12","15","None","Level","23","45","Docked","Level"
+"3","12","blue","62","16","22","None","Level","25","35","Docked","NotLevel"
+"4","18","blue","59","6","20","Docked","NotLevel","19","39","Park","Level"
+"5","27","blue","45","10","25","Docked","Level","7","15","Docked","NotLevel"
+"6","32","red","110","18","39","None","Level","36","56",NA,"Level"
+"7","35","blue","88","12","30","Docked","Level","11","41",NA,"Level"
+"8","44","red","96","12","30","Docked","Level","28","36",NA,"NotLevel"
+"9","47","blue","109","18","24","None","NotLevel","35","65","Park","Level"
+"10","52","red","-1",NA,NA,NA,NA,NA,NA,"Docked",NA
+"11","60","red","-1",NA,NA,NA,NA,NA,NA,"Docked",NA
+"12","68","blue","-1",NA,NA,NA,NA,NA,NA,"Park",NA

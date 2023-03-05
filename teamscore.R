@@ -9,7 +9,6 @@ library(dplyr)
 # @input tkey: team key 'frc2106'
 #
 getTeamData <- function(df, tkey) {
-    # TODO: reorder to correct match number
     # initialize vectors
     match_number <- c()
     team <- c()
@@ -22,6 +21,7 @@ getTeamData <- function(df, tkey) {
     tele_dock <- c()
     tele_p <- c()
     tele_balance <- c()
+
 
     # loop through all matches
     for (i in 1:length(df$match_number)) {
@@ -45,6 +45,8 @@ getTeamData <- function(df, tkey) {
                 auto_dock <- append(auto_dock, sb$autoChargeStationRobot2[i])
             } else if (pos == 3){
                 auto_dock <- append(auto_dock, sb$autoChargeStationRobot3[i])
+            } else {
+                auto_dock <- append(auto_dock, '0')
             }
             auto_balance <- append(auto_balance, sb$autoBridgeState[i])
             auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i]) 
@@ -59,6 +61,8 @@ getTeamData <- function(df, tkey) {
                 tele_dock <- append(tele_dock, sb$endGameChargeStationRobot2[i])
             } else if (pos == 3){
                 tele_dock <- append(tele_dock, sb$endGameChargeStationRobot3[i])
+            } else {
+                tele_dock <- append(tele_dock, '0')
             }
             tele_balance <- append(tele_balance, sb$endGameBridgeState[i])
 
@@ -79,6 +83,8 @@ getTeamData <- function(df, tkey) {
                 auto_dock <- append(auto_dock, sb$autoChargeStationRobot2[i])
             } else if (pos == 3){
                 auto_dock <- append(auto_dock, sb$autoChargeStationRobot3[i])
+            } else {
+                auto_dock <- append(auto_dock, '0')
             }
             auto_balance <- append(auto_balance, sb$autoBridgeState[i])
             auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i]) 
@@ -93,6 +99,8 @@ getTeamData <- function(df, tkey) {
                 tele_dock <- append(tele_dock, sb$endGameChargeStationRobot2[i])
             } else if (pos == 3){
                 tele_dock <- append(tele_dock, sb$endGameChargeStationRobot3[i])
+            } else {
+                tele_dock <- append(tele_dock, '0')
             }
             tele_balance <- append(tele_balance, sb$endGameBridgeState[i])
 
@@ -103,7 +111,8 @@ getTeamData <- function(df, tkey) {
     }
 
     # output report
-    return(cbind(match_number, scores, auto_gpp, auto_p, auto_dock, auto_balance,
-        tele_gpp, tele_p, tele_dock, tele_balance))
+    return(cbind(match_number, team, scores, auto_gpp, auto_p, auto_dock, 
+        auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
+    # return(tibble(match_number, team, scores, auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
 }
 
