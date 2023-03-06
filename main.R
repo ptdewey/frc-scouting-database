@@ -33,7 +33,7 @@ for (file in files) {
 
 
 # 
-# Make master csv file
+# Make event csv file
 #
 allteams <- data.frame()
 setwd('../output')
@@ -57,5 +57,13 @@ cols <- c('team', 'avg_score', 'avg_auto_game_piece_points', 'avg_auto_points',
     'count_auto_dock', 'count_auto_level', 'avg_tele_game_piece_points', 
     'avg_tele_points', 'count_tele_dock', 'count_tele_balance')
 colnames(allteams) <- cols
-
 write.csv(allteams, 'vabla_allteams.csv')
+
+
+#
+# graphs and models
+#
+library(ggplot2)
+ggplot(allteams, aes(avg_auto_points, avg_tele_points), c=tkey) + geom_point()
+
+

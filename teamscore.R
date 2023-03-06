@@ -28,6 +28,12 @@ getTeamData <- function(df, tkey) {
         # get alliances on both teams
         keysb <- simplify2array(df$alliances$blue$team_keys[i])
         keysr <- simplify2array(df$alliances$red$team_keys[i])
+
+        # TODO: add sf and f matches?
+        if (df$comp_level[i] != "qm") {
+            next 
+        }
+
         # keys <- append(keysb, keysr)
         match_number <- append(match_number, df$match_number[i])
 

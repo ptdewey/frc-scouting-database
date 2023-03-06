@@ -4,10 +4,10 @@
 "3","16","red","56","10","24","Docked","NotLevel","12","22","None","NotLevel"
 "4","19","blue","85","9","20","Docked","NotLevel","30","60","Park","Level"
 "5","25","red","89","10","16","None","NotLevel","36","56","Docked","Level"
-"6","31","blue","79","9","15","None","NotLevel","32","54",NA,"Level"
-"7","35","red","89","12","26","Docked","NotLevel","33","53",NA,"Level"
-"8","44","red","96","12","30","None","Level","28","36",NA,"NotLevel"
-"9","51","blue","-1",NA,NA,NA,NA,NA,NA,"Docked",NA
-"10","55","blue","-1",NA,NA,NA,NA,NA,NA,"Docked",NA
-"11","58","red","-1",NA,NA,NA,NA,NA,NA,"None",NA
-"12","64","blue","-1",NA,NA,NA,NA,NA,NA,"Park",NA
+"6","31","blue","79","9","15","None","NotLevel","32","54","None","Level"
+"7","35","red","89","12","26","Docked","NotLevel","33","53","Docked","Level"
+"8","44","red","96","12","30","None","Level","28","36","Docked","NotLevel"
+"9","51","blue","55","7","18","None","NotLevel","29","37","Docked","NotLevel"
+"10","55","blue","174","15","29","Docked","NotLevel","66","88","Docked","Level"
+"11","58","red","100","6","24","Docked","Level","37","51","None","NotLevel"
+"12","64","blue","89","9","23","Docked","NotLevel","29","51","Park","Level"
