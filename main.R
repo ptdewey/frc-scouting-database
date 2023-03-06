@@ -59,11 +59,3 @@ cols <- c('team', 'avg_score', 'avg_auto_game_piece_points', 'avg_auto_points',
 colnames(allteams) <- cols
 write.csv(allteams, 'vabla_allteams.csv')
 
-
-#
-# graphs and models
-#
-library(ggplot2)
-ggplot(allteams, aes(avg_auto_points, avg_tele_points), c=tkey) + geom_point()
-
-
