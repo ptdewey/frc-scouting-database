@@ -8,7 +8,7 @@ getEventMeans <- function(allteams, df, team_key, event_key) {
     tele_dock <- length(which(df$tele_dock == 'Docked'))
     tele_balance <- length(which(df$tele_balance == 'Level' & df$tele_dock == 'Docked'))
 
-    allteams <- rbind(allteams, c(tkey, 
+    allteams <- rbind(allteams, c(team_key, 
         mean(as.numeric(df$scores)), mean(as.numeric(df$auto_gpp)), 
         mean(as.numeric(df$auto_p)), auto_dock, auto_balance, 
         mean(as.numeric(df$tele_gpp)), mean(as.numeric(df$tele_p)), 
@@ -16,4 +16,3 @@ getEventMeans <- function(allteams, df, team_key, event_key) {
 
     return(allteams)
 }
-
