@@ -1,7 +1,3 @@
-library(tidyverse)
-library(jsonlite)
-library(dplyr)
-
 # 
 # Parses and outputs match statistics for team
 #
