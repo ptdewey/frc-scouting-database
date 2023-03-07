@@ -6,8 +6,9 @@ Welcome to a project I made to help with scouting for the 2023 First Robotics Co
 
 1. Clone repository
 2. Install [Dependencies](#Dependencies)
-3. Run ```Rscript main.R``` from the command line or in [RStudio](https://posit.co/downloads/) 
-4. Your output csv files can be found within the `output/{event_name}` directory
+3. Rename `example.env` to `.env` and add your Blue Alliance api key
+4. Run ```Rscript main.R {event_key}``` from the command line or in [RStudio](https://posit.co/downloads/) 
+5. Your output csv files can be found within the `output/{event_name}` directory
 
 ## Dependencies:
 
@@ -17,4 +18,7 @@ Welcome to a project I made to help with scouting for the 2023 First Robotics Co
 | tidyverse         | >= 1.3.2   |
 | dplyr             | >= 1.1.0   |
 | jsonlite          | >= 1.8.4   |
+
+
+Powered by [The Blue Alliance](https://thebluealliance.com/)
 
