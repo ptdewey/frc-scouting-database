@@ -4,59 +4,58 @@ library(glue)
 library(stringr)
 library(jsonlite)
 
+source('teamlist.R')
 source('teamscore.R')
+source('eventmatches.R')
+source('teammatches.R')
+source('teamopr.R')
+source('eventmean.R')
+
+# Read api key from .env
+readRenviron(".env")
+api_key <- Sys.getenv("API_KEY")
+
+# Read event_key from cli
+args = commandArgs(trailingOnly=TRUE)
+if (length(args) == 0) {
+    event_key <- readline(prompt = "Enter event key: ")
+} else {
+    event_key <- args[1]
+}
 
 # get teams from event
-# teams <- fromJSON('data/vabla_teams.json')
-# teamkeys <- teams$key
-# write(teamkeys, 'data/teams.txt')
+event_teams <- getTeamList(event_key, api_key)
 
 #
-# read all team match files
+# Get match data for each team at event
 #
-setwd('./input')
-files <- list.files(pattern = "m_frc")
-for (file in files) {
-    # Get team name from filenames
-    tkey <- simplify2array(str_split(file, '.json'))[1]
-    tkey <- simplify2array(str_split(tkey, 'm_'))[2]
-    
-    # get output dataframe
-    out <- fromJSON(file) %>% 
-        arrange(match_number) %>% 
-        getTeamData(tkey) 
-
-    setwd('../output')
-    # write dataframe to spreadsheet
-    write.csv(out, paste(tkey,'.csv', sep=''))
-    setwd('../input')
+# this is part is a bit slow
+rm(list=ls(pattern="frc"))
+for (team_key in event_teams) {
+    out <- getTeamMatches(team_key, event_key, api_key)
+    assign(glue("{team_key}"), out)
 }
 
-
-# 
-# Make event csv file
 #
+# Generate event csv files and zip
+#
+if (!dir.exists(glue("output/{event_key}"))) {
+    dir.create(glue("output/{event_key}"))
+}
+
+# Get team OPRs and related stats
+ratings <- getOpr(getEventMatches(event_key, api_key), event_teams)
+write.csv(ratings, glue("output/{event_key}/{event_key}_opr.csv"))
+
+# event-wide team stats
 allteams <- data.frame()
-setwd('../output')
-files <- list.files(pattern = "frc")
-for (file in files) {
-    tkey <- simplify2array(str_split(file, '.csv'))[1]
-    df <- read.csv(file)
-    # clean out unplayed matches
-    df <- df[which(df$scores != -1),]
-    auto_dock <- length(which(df$auto_dock == 'Docked'))
-    auto_balance <- length(which(df$auto_balance == 'Level' & df$auto_dock == 'Docked'))
-    tele_dock <- length(which(df$tele_dock == 'Docked'))
-    tele_balance <- length(which(df$tele_balance == 'Level' & df$tele_dock == 'Docked'))
-
-    # TODO COUNTS OF DOCKS AND BALANCES
-    allteams <- rbind(allteams, c(tkey, 
-        mean(df$scores), mean(df$auto_gpp), mean(df$auto_p), auto_dock, auto_balance, 
-        mean(df$tele_gpp), mean(df$tele_p), tele_dock, tele_balance))
+for (team_key in ls(pattern="frc")) {
+    df <- get(team_key)
+    allteams <- getEventMeans(allteams, df, team_key, event_key)
 }
-cols <- c('team', 'avg_score', 'avg_auto_game_piece_points', 'avg_auto_points', 
-    'count_auto_dock', 'count_auto_level', 'avg_tele_game_piece_points', 
-    'avg_tele_points', 'count_tele_dock', 'count_tele_balance')
-colnames(allteams) <- cols
-write.csv(allteams, 'vabla_allteams.csv')
+# cols <- c('team', 'avg_score', 'avg_auto_game_piece_points', 'avg_auto_points', 
+#     'count_auto_dock', 'count_auto_level', 'avg_tele_game_piece_points', 
+#     'avg_tele_points', 'count_tele_dock', 'count_tele_balance')
+# colnames(allteams) <- cols
+write.csv(allteams, glue('output/{event_key}/{event_key}_all.csv'))
 
