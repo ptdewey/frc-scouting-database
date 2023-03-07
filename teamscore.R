@@ -8,6 +8,8 @@ getTeamData <- function(df, tkey) {
     # initialize vectors
     match_number <- c()
     team <- c()
+    t2 <- c()
+    t3 <- c()
     scores <- c()
     auto_gpp <- c()
     auto_p <- c()
@@ -17,7 +19,8 @@ getTeamData <- function(df, tkey) {
     tele_dock <- c()
     tele_p <- c()
     tele_balance <- c()
-
+    alliance <- matrix(nrow=0,ncol=4)
+    colnames(alliance) <- c('alliance', 'team1', 'team2', 'team3')
 
     # loop through all matches
     for (i in 1:length(df$match_number)) {
@@ -36,9 +39,10 @@ getTeamData <- function(df, tkey) {
         if (tkey %in% keysr) { # red alliance
             # get position: 1/2/3 
             pos <- which(keysr == tkey)
+            alliance <- rbind(alliance, c('red', keysr))
             # make new dataframe for easier indexing
             sb <- df$score_breakdown$red
-            team <- append(team, 'red')
+            # alliance <- append(alliance, 'red')
 
             # AUTO
             if (pos == 1) {
@@ -74,9 +78,9 @@ getTeamData <- function(df, tkey) {
         } else if (tkey %in% keysb) { # blue alliance
             # get position: 1/2/3 
             pos <- which(keysb == tkey)
+            alliance <- rbind(alliance, c('blue', keysb))
             # make new dataframe for easier indexing
             sb <- df$score_breakdown$blue
-            team <- append(team, 'blue')
 
             # AUTO
             if (pos == 1) {
@@ -113,8 +117,8 @@ getTeamData <- function(df, tkey) {
     }
 
     # output report
-    return(cbind(match_number, team, scores, auto_gpp, auto_p, auto_dock, 
+    return(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, 
         auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
-    # return(tibble(match_number, team, scores, auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
+    # return(tibble(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
 }
 
