@@ -39,13 +39,14 @@ for (team_key in event_teams) {
 #
 # Generate event csv files and zip
 #
-if (!dir.exists(glue("output/{event_key}"))) {
-    dir.create(glue("output/{event_key}"))
+out_dir <- glue("output/{event_key}")
+if (!dir.exists(glue(out_dir))) {
+    dir.create(glue(out_dir))
 }
+file.copy('output/data_dictionary.md', out_dir)
 
 # Get team OPRs and related stats
 ratings <- getOpr(getEventMatches(event_key, api_key), event_teams)
-write.csv(ratings, glue("output/{event_key}/{event_key}_opr.csv"))
 
 # event-wide team stats
 allteams <- data.frame()
