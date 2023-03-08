@@ -51,7 +51,7 @@ write.csv(ratings, glue("output/{event_key}/{event_key}_opr.csv"))
 allteams <- data.frame()
 for (team_key in ls(pattern="frc")) {
     df <- get(team_key)
-    allteams <- getEventMeans(allteams, df, team_key, event_key)
+    allteams <- getEventMeans(allteams, df, ratings, team_key, event_key)
 }
 # cols <- c('team', 'avg_score', 'avg_auto_game_piece_points', 'avg_auto_points', 
 #     'count_auto_dock', 'count_auto_level', 'avg_tele_game_piece_points', 

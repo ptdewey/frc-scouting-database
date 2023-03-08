@@ -35,7 +35,7 @@ getOpr <- function(df, event_teams) {
     team_contrib <- data.frame(event_teams, opr, auto_opr, tele_opr, auto_ratio,
         auto_gp_opr, tele_gp_opr)
     colnames(team_contrib) <- c('team', 'opr', 'auto_opr', 'teleop_opr', 
-        'auto_opr_%', 'auto_gpc_opr', 'tele_gpc_opr')
+        'auto_opr_ratio', 'auto_gpc_opr', 'tele_gpc_opr')
     return(team_contrib %>% arrange(desc(opr)))
 }
 
