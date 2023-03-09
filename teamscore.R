@@ -117,8 +117,10 @@ getTeamData <- function(df, tkey) {
     }
 
     # output report
-    return(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, 
-        auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
+    # return(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, 
+    #     auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
+    return(as.data.frame(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock,
+        auto_balance, tele_gpp, tele_p, tele_dock, tele_balance)))
     # return(tibble(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
 }
 
