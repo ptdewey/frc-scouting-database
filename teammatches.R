@@ -1,17 +1,21 @@
-# get match data for input team
-# @input team_key: team key i.e 'frc254'
-# @input event_key: event key found on blue alliance
-# @input api_key: blue alliance api key found on account dashboard
-getTeamMatches <- function(team_key, event_key, api_key) {
-    link <- glue("https://www.thebluealliance.com/api/v3/team/{team_key}/event/{event_key}/matches")
-    cmd <- glue("curl -X 'GET' {link} -H 'accept: application/json' -H 'X-TBA-Auth-Key: {api_key}'")
-    oldw <- getOption("warn")
-    options(warn = -1) 
-    out <- system(cmd, intern=T) %>% fromJSON() %>%
-        arrange(match_number) %>% 
+# create dataframe containing all matches from event
+# @input df: raw event matches dataframe from getEventMatchesRaw()  
+# @input team_key: team key (i.e. 'frc254')
+getTeamMatches <- function(df, team_key) {
+    # get alliances
+    keysr <- as.data.frame(t(simplify2array(df$alliances$red$team_keys)))
+    keysb <- as.data.frame(t(simplify2array(df$alliances$blue$team_keys)))
+
+    # get match numbers where team appears
+    match_numbers <- sort(c(which(team_key == keysb[,1]), 
+        which(team_key == keysb[,2]), which(team_key == keysb[,3]),
+        which(team_key == keysr[,1]), which(team_key == keysr[,2]),
+        which(team_key == keysr[,3])))
+    
+    out <- df[match_numbers,] %>%
         getTeamData(team_key) %>%
         as.data.frame()
-    options(warn = oldw)
+
     return(out)
 }
 
