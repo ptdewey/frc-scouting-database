@@ -12,9 +12,12 @@ getTeamMatches <- function(df, team_key) {
         which(team_key == keysr[,1]), which(team_key == keysr[,2]),
         which(team_key == keysr[,3])))
     
+    oldw <- getOption("warn")
+    options(warn = -1) 
     out <- df[match_numbers,] %>%
         getTeamData(team_key) %>%
         as.data.frame()
+    options(warn = oldw)
 
     return(out)
 }
