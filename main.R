@@ -48,7 +48,7 @@ out_dir <- glue("output/{event_key}")
 if (!dir.exists(glue(out_dir))) {
     dir.create(glue(out_dir))
 }
-file.copy('output/data_dictionary.md', out_dir)
+file.copy('output/README.md', out_dir)
 
 # Get team OPRs and related stats
 
