@@ -4,12 +4,10 @@ library(glue)
 library(stringr)
 library(jsonlite)
 
-source('teamlist.R')
-source('teamscore.R')
-source('eventmatches.R')
-source('teammatches.R')
-source('teamopr.R')
-source('eventmean.R')
+# local imports
+file.sources <- list.files(c('api'), pattern="\\.R$", 
+    full.names=TRUE, ignore.case=TRUE)
+sapply(file.sources, source)
 
 # Read api key from .env
 if (!exists('api_key')) {
