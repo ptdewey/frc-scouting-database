@@ -1,6 +1,7 @@
 ## FRC Event Modeling 2023:
 
 Welcome to a project I made to help with scouting for the 2023 First Robotics Competition.  
+I am a college student studying data science, and I originally made this for my old team 2106.  
 
 ## How to Use:
 
