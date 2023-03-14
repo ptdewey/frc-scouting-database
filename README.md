@@ -11,6 +11,8 @@ I am a college student studying data science, and I originally made this for my 
 4. Run ```Rscript main.R {event_key}``` from the command line or in [RStudio](https://posit.co/downloads/) 
 5. Your output csv files can be found within the `output/{event_name}` directory
 
+If you would like a Google Colab/Jupyter Notebook implementation I can make one available upon request.  
+
 ## Dependencies:
 
 | Name              | Version    |
@@ -20,6 +22,4 @@ I am a college student studying data science, and I originally made this for my 
 | dplyr             | >= 1.1.0   |
 | jsonlite          | >= 1.8.4   |
 
-
 Powered by [The Blue Alliance](https://thebluealliance.com/)
-
