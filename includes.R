@@ -4,6 +4,7 @@ library(dplyr)
 library(glue)
 library(stringr)
 library(jsonlite)
+library(magrittr)
 
 # custom function imports
 source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-2023/main/api/eventmatches.R')
