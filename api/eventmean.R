@@ -26,6 +26,10 @@ getEventMeans <- function(allteams, df, opr_df, team_key, event_key) {
         'teleop_game_piece_opr', 'count_tele_dock', 'count_tele_balance',
         'auto_teleop_opr_ratio')
     colnames(allteams) <- cols
+    
+    allteams %<>% 
+        mutate_at(vars(contains('opr')), ~ as.numeric(.)) %>%
+        mutate_at(vars(contains('count')), ~ as.integer(.))
 
     return(allteams)
 }
