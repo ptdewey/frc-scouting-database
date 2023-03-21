@@ -1,6 +1,15 @@
+library(tidyverse)
+library(readr)
+library(purrr)
+library(dplyr)
+library(magrittr)
+library(tibble)
+library(glue)
+
 # merge spreadsheets from multiple events
 # @input event_keys: list of event keys to merge
 merge_events <- function(event_keys) {
+    # df <- read_csv(glue("{event_keys}/{event_keys}_all.csv"))
     df <- read_csv(glue("output/{event_keys}/{event_keys}_all.csv"))
 
     # get list of unique teams and number of occurences
@@ -62,6 +71,15 @@ merge_events <- function(event_keys) {
 
     # TODO: figure out best metric to group output by
     # likely opr, but currently is num_events)
+    return(out)
+}
+
+# Create merged output dataframe containing only teams from list
+# @input event_teams: list of teams
+# @input event_key: event key or name for ouput
+filter_merged <- function(event_teams, event_key) {
+    df <- read_csv("output/events_all.csv")
+    out <- df[which(df$team %in% event_teams), ]
     return(out)
 }
 
