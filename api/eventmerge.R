@@ -6,10 +6,15 @@ library(magrittr)
 library(tibble)
 library(glue)
 
+# pull_event_data <- function(event_keys) {
+#     #
+#     events <- list()
+#     return(events)
+# }
+
 # merge spreadsheets from multiple events
 # @input event_keys: list of event keys to merge
 merge_events <- function(event_keys) {
-    # df <- read_csv(glue("{event_keys}/{event_keys}_all.csv"))
     df <- read_csv(glue("output/{event_keys}/{event_keys}_all.csv"))
 
     # get list of unique teams and number of occurences
