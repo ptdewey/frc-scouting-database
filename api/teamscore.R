@@ -23,7 +23,7 @@ getTeamData <- function(df, tkey) {
     colnames(alliance) <- c('alliance', 'team1', 'team2', 'team3')
 
     # loop through all matches
-    for (i in 1:length(df$match_number)) {
+    for (i in seq_along(df$match_number)) {
         # get alliances on both teams
         keysb <- simplify2array(df$alliances$blue$team_keys[i])
         keysr <- simplify2array(df$alliances$red$team_keys[i])

@@ -3,6 +3,7 @@ library(tidyverse)
 library(dplyr)
 library(glue)
 library(stringr)
+library(tibble)
 library(jsonlite)
 library(magrittr)
 library(purrr)
@@ -15,4 +16,4 @@ source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-
 source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-2023/main/api/teamopr.R')
 source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-2023/main/api/teamscore.R')
 source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-2023/main/api/eventmerge.R')
-
+source('https://raw.githubusercontent.com/TheSupremeToast/frc-scouting-database-2023/main/api/driver.R')

@@ -1,4 +1,5 @@
 library(tidyverse)
+library(magrittr)
 library(dplyr)
 library(glue)
 library(tibble)
@@ -27,44 +28,18 @@ if (!exists("event_key")) {
     }
 }
 
-# get teams from event
-# TODO: maybe change to pull from matches? (deal with teams with no matches)
-event_teams <- getTeamList(event_key, api_key)
+###############
 
-#
-# Get match data for each team at event
-#
-raw_event_matches <- getEventMatchesRaw(event_key, api_key)
-rm(list = ls(pattern = "frc"))
-for (team_key in event_teams) {
-    out <- getTeamMatches(raw_event_matches, team_key)
-    assign(glue("{team_key}"), out)
-}
+# get event data for input event key
+event_all <- get_event_data(event_key, api_key)
 
-#
-# Generate event csv files and zip
-#
-out_dir <- glue("output/{event_key}")
-if (!dir.exists(glue(out_dir))) {
-    dir.create(glue(out_dir))
-}
-file.copy("output/README.md", out_dir)
+# merge event data:
+event_keys <- c("2023vabla", "2023mdbet", "2023vaale", "2023vapor")
+merged <- get_multi_event_data(event_keys, api_key)
 
-# Get team OPRs and related stats
+# filtere merged data to contain only teams from one event
 
-ratings <- getOpr(getEventMatches(raw_event_matches), event_teams)
-write.csv(ratings, glue("output/{event_key}/{event_key}_opr.csv"))
-
-# event-wide team stats
-allteams <- data.frame()
-for (team_key in ls(pattern = "frc")) {
-    df <- get(team_key)
-    allteams <- getEventMeans(allteams, df, ratings, team_key, event_key)
-}
-write.csv(allteams, glue("output/{event_key}/{event_key}_all.csv"))
-
-# TODO: read from file? or ouput directory?
-event_keys <- c("2023vabla", "2023mdbet")
-merged <- merge_events(event_keys)
-write.csv(merged, glue("output/events_all.csv"))
+# CHANGE THIS VARIABLE TO GET FUTURE EVENT DATA:
+filtered_event_key <- event_key
+filter_merged <- get_filtered_multi_event_data(event_key, api_key)
 

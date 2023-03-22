@@ -1,3 +1,7 @@
+library(magrittr)
+library(dplyr)
+library(glue)
+
 # @input allteams: input/output dataframe
 # @input df: team matches dataframe
 # @input team_key: team identifier
