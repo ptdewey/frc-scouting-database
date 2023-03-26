@@ -10,16 +10,6 @@ get_event_data <- function(event_key, api_key) {
     event_teams <- getTeamList(event_key, api_key)
 
 #
-# Get match data for each team at event
-#
-    raw_event_matches <- getEventMatchesRaw(event_key, api_key)
-    rm(list = ls(pattern = "frc"))
-    for (team_key in event_teams) {
-        out <- getTeamMatches(raw_event_matches, team_key)
-        assign(glue("{team_key}"), out)
-    }
-
-#
 # Generate event csv files and zip
 #
     out_dir <- glue("output/{event_key}")
@@ -27,6 +17,21 @@ get_event_data <- function(event_key, api_key) {
         dir.create(glue(out_dir))
     }
     file.copy("output/README.md", out_dir)
+
+#
+# Get match data for each team at event
+#
+    raw_event_matches <- getEventMatchesRaw(event_key, api_key)
+    event_teams <- event_teams[which(event_teams %in%
+        simplify2array(raw_event_matches$alliances$red$team_keys))]
+    event_teams <- event_teams[which(event_teams %in%
+        simplify2array(raw_event_matches$alliances$blue$team_keys))]
+    rm(list = ls(pattern = "frc"))
+    for (team_key in event_teams) {
+        out <- getTeamMatches(raw_event_matches, team_key)
+        assign(glue("{team_key}"), out)
+    }
+
 
 # Get team OPRs and related stats
 
