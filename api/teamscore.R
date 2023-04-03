@@ -19,7 +19,8 @@ getTeamData <- function(df, tkey) {
     tele_dock <- c()
     tele_p <- c()
     tele_balance <- c()
-    alliance <- matrix(nrow=0,ncol=4)
+    alliance <- matrix(nrow = 0, ncol = 4)
+    rp <- c()
     colnames(alliance) <- c('alliance', 'team1', 'team2', 'team3')
 
     # loop through all matches
@@ -75,6 +76,9 @@ getTeamData <- function(df, tkey) {
             # TOTAL
             scores <- append(scores, df$alliances$red$score[i])
 
+            # ranking points
+            rp <- append(rp, df$alliances$red$rp[i])
+
         } else if (tkey %in% keysb) { # blue alliance
             # get position: 1/2/3 
             pos <- which(keysb == tkey)
@@ -112,6 +116,9 @@ getTeamData <- function(df, tkey) {
 
             # TOTAL
             scores <- append(scores, df$alliances$blue$score[i])
+
+            # ranking points
+            rp <- append(rp, df$alliances$red$rp[i])
 
         }
     }

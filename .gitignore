@@ -1,6 +1,7 @@
 .env
 *.RData
 *.Rhistory
+*.Rbuildignore
 *.ipynb_checkpoints
 *test*
 requests.sh

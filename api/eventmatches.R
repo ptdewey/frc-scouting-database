@@ -31,11 +31,14 @@ getEventMatches <- function(df) {
         df$score_breakdown$red$autoGamePieceCount,
         df$score_breakdown$red$teleopGamePieceCount,
         df$score_breakdown$blue$autoGamePieceCount,
-        df$score_breakdown$blue$teleopGamePieceCount)
+        df$score_breakdown$blue$teleopGamePieceCount,
+        df$score_breakdown$red$rp,
+        df$score_breakdown$blue$rp
+    )
     colnames(out) <- c('comp_level', 'match_number', 'r_score', 'r_auto_score',
         'r_teleop_score', 'b_score', 'b_auto_score', 'b_teleop_score',
         'r1', 'r2', 'r3', 'b1', 'b2', 'b3', 'r_auto_gpc', 'r_tele_gpc',
-        'b_auto_gpc', 'b_tele_gpc')
+        'b_auto_gpc', 'b_tele_gpc', "r_rp", "b_rp")
 
     return(out)
 }

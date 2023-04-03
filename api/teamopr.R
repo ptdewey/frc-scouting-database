@@ -16,6 +16,7 @@ getOpr <- function(df, event_teams) {
     tele_score <- c(df$r_teleop_score, df$b_teleop_score)
     auto_gpc <- c(df$r_auto_gpc, df$b_auto_gpc)
     tele_gpc <- c(df$r_tele_gpc, df$b_tele_gpc)
+    rp <- c(df$r_rp, df$b_rp)
 
     # create design matrix
     X <- matrix(0, nrow = length(df$match_number)*2, ncol = length(event_teams))
@@ -30,12 +31,13 @@ getOpr <- function(df, event_teams) {
     auto_ratio <- auto_opr / opr
     auto_gp_opr <- solve(t(X) %*% X) %*% (t(X) %*% auto_gpc)
     tele_gp_opr <- solve(t(X) %*% X) %*% (t(X) %*% tele_gpc)
+    rp_opr <- solve(t(X) %*% X) %*% (t(X) %*% rp)
 
 
     team_contrib <- data.frame(event_teams, opr, auto_opr, tele_opr, auto_ratio,
-        auto_gp_opr, tele_gp_opr)
+        auto_gp_opr, tele_gp_opr, rp_opr)
     colnames(team_contrib) <- c("team", "opr", "auto_opr", "teleop_opr",
-        "auto_opr_ratio", "auto_gpc_opr", "tele_gpc_opr")
+        "auto_opr_ratio", "auto_gpc_opr", "tele_gpc_opr", "rp_opr")
     return(team_contrib %>% arrange(desc(opr)))
 }
 
