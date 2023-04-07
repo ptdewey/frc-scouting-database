@@ -46,10 +46,13 @@ merge_events <- function(event_keys) {
         tele_climb_count = integer(),
         opr1 = numeric(),
         opr2 = numeric(),
+        opr3 = numeric(),
         auto_opr1 = numeric(),
         auto_opr2 = numeric(),
+        auto_opr3 = numeric(),
         tele_opr1 = numeric(),
-        tele_opr2 = numeric()
+        tele_opr2 = numeric(),
+        tele_opr3 = numeric()
     )
 
     # helper function for map
@@ -65,17 +68,18 @@ merge_events <- function(event_keys) {
             tele_climb_count = sum(team_rows$count_tele_dock),
             opr1 = team_rows[1, ]$opr,
             opr2 = team_rows[2, ]$opr,
+            opr3 = team_rows[3, ]$opr,
             auto_opr1 = team_rows[1, ]$auto_opr,
             auto_opr2 = team_rows[2, ]$auto_opr,
+            auto_opr3 = team_rows[3, ]$auto_opr,
             tele_opr1 = team_rows[1, ]$teleop_opr,
-            tele_opr2 = team_rows[2, ]$teleop_opr
+            tele_opr2 = team_rows[2, ]$teleop_opr,
+            tele_opr3 = team_rows[3, ]$teleop_opr
         )
     }
     out <- map_dfr(teams$team, append_team, out = out, df = df) %>%
         arrange(desc(max_opr))
 
-    # TODO: figure out best metric to group output by
-    # likely opr, but currently is num_events)
     return(out)
 }
 

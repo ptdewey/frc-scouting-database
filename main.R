@@ -35,7 +35,7 @@ event_all <- get_event_data(event_key, api_key)
 
 # merge event data
 event_keys <- c("2023vabla", "2023mdbet", "2023vaale", "2023vapor",
-    "2023vagle", "2023mdtim")
+    "2023vagle", "2023mdtim", "2023chcmp")
 merged <- get_multi_event_data(event_keys, api_key)
 
 # filtere merged data to contain only teams from one event

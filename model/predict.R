@@ -147,6 +147,7 @@ get_alliance_rp_opr <- function(alliance_teams, opr_df) {
     return(opr_sum)
 }
 
+
 # Generate simulated match for two arbitrary alliances
 gen_match <- function() {
     # TODO:
@@ -165,7 +166,8 @@ get_winner <- function(r_v, b_v) {
 # @input subset_event_matches: list of matches subset into train/test etc.
 # @input opr_df: dataframe containing opr information to pull from
 get_predictions <- function(subset_event_matches, opr_df) {
-    event_matches_test <- as.data.frame(subset_event_matches[2])
+    # event_matches_test <- as.data.frame(subset_event_matches[2])
+    event_matches_test <- subset_event_matches
     red_test <- select(event_matches_test, c(r1, r2, r3))
     blue_test <- select(event_matches_test, c(b1, b2, b3))
 
