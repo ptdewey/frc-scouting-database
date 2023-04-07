@@ -234,22 +234,19 @@ gen_pred_elims <- function(raw_event_matches, opr_df) {
 # evaluate accuracy of predictions
 # @input subset_event_matches: dataframe containing predicted matches
 # @input preds: dataframe of predictions
-eval_predictions <- function(subset_event_matches, preds) {
-    subset_event_matches[1]
-    matches_played <- as.data.frame(subset_event_matches[1])
+eval_predictions <- function(event_matches, preds) {
+    matches_played <- as.data.frame(event_matches)
     match_nums <- preds[, 1]
-    print(matches_played$match_number)
-    print(match_nums)
-    matches_played
-    # TODO: make work
-
-    # matches_played <- matches_played %>% filter(match_nums %in% matches_played)
-    which(match_nums %in% matches_played)
-
-    print(matches_played$r_score)
+    if (length(event_matches$matches_played) > length(preds[, 1])) {
+        matches_played <- matches_played[
+            which(match_nums == matches_played$match_number), ]
+    } else {
+        preds <- preds[
+            which(match_nums == matches_played$match_number), ]
+    }
     red <- select(preds, c(r1, r2, r3))
     blue <- select(preds, c(b1, b2, b3))
-    eval <- cbind(red, blue) %>% 
+    eval <- cbind(red, blue) %>%
         mutate(r_pred_score = preds$r_pred_score) %>%
         mutate(b_pred_score = preds$b_pred_score) %>%
         mutate(pred_winner = get_winner(r_pred_score, b_pred_score)) %>%
@@ -259,6 +256,8 @@ eval_predictions <- function(subset_event_matches, preds) {
         mutate(actual_winner = get_winner(actual_r_score, actual_b_score)) %>%
         mutate(actual_winning_margin = abs(actual_r_score - actual_b_score)) %>%
         mutate(correct = (pred_winner == actual_winner)) %>%
+        mutate(r_score_diff = r_pred_score - actual_r_score) %>%
+        mutate(b_score_diff = b_pred_score - actual_b_score) %>%
         mutate(pred_margin_diff = pred_winning_margin - actual_winning_margin)
     return(eval)
 }

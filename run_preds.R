@@ -36,9 +36,10 @@ event_teams <- getTeamList(event_key, api_key)
 
 
 out <- get_predictions(as.data.frame(matches[2]), opr_df)
-# out <- get_predictions(matches[2], opr_df)
+# out <- get_predictions(matches, opr_df)
 write.csv(out, glue("output/{event_key}/{event_key}_predictions.csv"))
 
-# preds <- read_csv("output/2023vagle_predictions.csv")
-# eval_predictions(matches, preds)
+preds <- read_csv("output/2023chcmp_predictions.csv")
+write.csv(eval_predictions(matches[1], preds),
+    glue("output/{event_key}_evaluated_predictions.csv"))
 
