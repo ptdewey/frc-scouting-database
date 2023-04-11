@@ -9,8 +9,9 @@ getEventMatchesRaw <- function(event_key, api_key) {
     link <- glue("'https://www.thebluealliance.com/api/v3/event/{event_key}/matches'")
     cmd <- glue("curl -X 'GET' {link} -H 'accept: application/json' -H 'X-TBA-Auth-Key: {api_key}'")
     oldw <- getOption("warn")
-    options(warn = -1) 
-    df <- system(cmd, intern = TRUE) %>% fromJSON() %>%
+    options(warn = -1)
+    df <- system(cmd, intern = TRUE) %>%
+        fromJSON() %>%
         group_by(comp_level) %>%
         arrange(match_number, .by_group = TRUE) %>%
         as.data.frame()

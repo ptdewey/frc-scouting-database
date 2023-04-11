@@ -3,7 +3,7 @@
 # @input event_teams: team key "frc216"
 getOpr <- function(df, event_teams) {
     # remove unplayed matches
-    df <- df[which(df$r_score != -1), ]
+    df <- df[which(df$r_score != 1), ]
     # remove non-qualifying matches
     df <- df[which(df$comp_level == "qm"), ]
 

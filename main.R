@@ -31,17 +31,19 @@ if (!exists("event_key")) {
 ###############
 
 # get event data for input event key
-event_all <- get_event_data(event_key, api_key)
+# event_all <- get_event_data(event_key, api_key)
 
 # merge event data
-event_keys <- c("2023vabla", "2023mdbet", "2023vaale", "2023vapor",
-    "2023vagle", "2023mdtim", "2023chcmp")
+# event_keys <- c("2023vabla", "2023mdbet", "2023vaale", "2023vapor",
+    # "2023vagle", "2023mdtim", "2023chcmp")
+year <- 2023
+event_keys <- get_filtered_events(get_event_list(year, api_key))$key
 merged <- get_multi_event_data(event_keys, api_key)
 
 # filtere merged data to contain only teams from one event
 
 # CHANGE THIS VARIABLE TO GET FUTURE EVENT DATA:
 filtered_event_key <- event_key
-filtered_event_key <- "2023chcmp"
+filtered_event_key <- "2023cmptx"
 filter_merged <- get_filtered_multi_event_data(filtered_event_key, api_key)
 

@@ -8,6 +8,13 @@
 get_event_data <- function(event_key, api_key) {
 # get teams from event
     event_teams <- getTeamList(event_key, api_key)
+    event_teams <- filter_dummy_teams(event_teams)
+
+    # quit if event has less than required number of teams
+    # TODO: figure out correct number of teams
+    if (length(event_teams) < 18) {
+        return(FALSE)
+    }
 
 #
 # Generate event csv files and zip
@@ -55,8 +62,12 @@ get_event_data <- function(event_key, api_key) {
 #
 get_multi_event_data <- function(event_keys, api_key) {
     for (event_key in event_keys) {
+        print(event_key)
         if (!dir.exists(glue("output/{event_key}"))) {
-            get_event_data(event_key, api_key)
+            if (!(is.data.frame(get_event_data(event_key, api_key)))) {
+                event_keys <- event_keys[event_keys != event_key]
+            }
+            Sys.sleep(1)
         }
     }
     merged <- merge_events(event_keys)
