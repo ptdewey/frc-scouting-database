@@ -25,6 +25,19 @@ getTeamMatches <- function(df, team_key) {
     return(out)
 }
 
+# get match numbers for an input team number
+# @input df: non-raw matches dataframe from getEventMatches()
+# @input team_key: team to get matches for
+get_team_match_numbers <- function(df, team_key) {
+    keysr <- tibble(r1 = df$r1, r2 = df$r2, r3 = df$r3)
+    keysb <- tibble(b1 = df$b1, b2 = df$b2, b3 = df$b3)
+    match_numbers <- sort(c(which(team_key == keysb[, 1]),
+        which(team_key == keysb[, 2]), which(team_key == keysb[, 3]),
+        which(team_key == keysr[, 1]), which(team_key == keysr[, 2]),
+        which(team_key == keysr[, 3])))
+    return(match_numbers)
+}
+
 
 # create dataframe containing match numbers a team is in, teammates,
 #and position index

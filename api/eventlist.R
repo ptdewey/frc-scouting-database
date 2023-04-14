@@ -37,10 +37,7 @@ get_filtered_events <- function(events_df) {
         if (TRUE %in% grepl(event, type_5)) {
             events_df <- events_df[which(events_df$key != event), ]
         }
-        print(which(grepl(event, type_5) == FALSE))
+        # print(which(grepl(event, type_5) == FALSE))
     }
-
-
     return(events_df)
 }
-

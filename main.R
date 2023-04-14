@@ -18,24 +18,19 @@ if (!exists("api_key")) {
     api_key <- Sys.getenv("API_KEY")
 }
 
-# Read event_key from cli if not defined
+###############
+
+
+# Get event data for input event key
 args <- commandArgs(trailingOnly = TRUE)
 if (!exists("event_key")) {
     if (length(args) == 0) {
-        event_key <- readline(prompt = "Enter event key: ")
-    } else {
         event_key <- args[1]
+        event_all <- get_event_data(event_key, api_key)
     }
 }
 
-###############
-
-# get event data for input event key
-# event_all <- get_event_data(event_key, api_key)
-
 # merge event data
-# event_keys <- c("2023vabla", "2023mdbet", "2023vaale", "2023vapor",
-    # "2023vagle", "2023mdtim", "2023chcmp")
 year <- 2023
 event_keys <- get_filtered_events(get_event_list(year, api_key))$key
 merged <- get_multi_event_data(event_keys, api_key)
@@ -43,7 +38,11 @@ merged <- get_multi_event_data(event_keys, api_key)
 # filtere merged data to contain only teams from one event
 
 # CHANGE THIS VARIABLE TO GET FUTURE EVENT DATA:
-filtered_event_key <- event_key
-filtered_event_key <- "2023cmptx"
-filter_merged <- get_filtered_multi_event_data(filtered_event_key, api_key)
+# champs division keys
+filtered_keys <- c("2023arc", "2023cur", "2023dal",
+    "2023gal", "2023hop", "2023joh", "2023mil"
+)
+for (key in filtered_keys) {
+    df <- get_filtered_multi_event_data(key, api_key)
+}
 

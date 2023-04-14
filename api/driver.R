@@ -67,11 +67,11 @@ get_multi_event_data <- function(event_keys, api_key) {
             if (!(is.data.frame(get_event_data(event_key, api_key)))) {
                 event_keys <- event_keys[event_keys != event_key]
             }
-            Sys.sleep(1)
+            Sys.sleep(0.05)
         }
     }
     merged <- merge_events(event_keys)
-    write.csv(merged, glue("output/events_all.csv"))
+    write.csv(merged, glue("output/events_all.csv"), row.names = FALSE)
 
     return(merged)
 }
@@ -82,6 +82,8 @@ get_multi_event_data <- function(event_keys, api_key) {
 get_filtered_multi_event_data <- function(event_key, api_key) {
     teamlist <- getTeamList(event_key, api_key)
     filtered <- filter_merged(teamlist, event_key)
-    write.csv(filtered, glue("output/{event_key}_filtered.csv"))
+    write.csv(filtered, glue("output/{event_key}_filtered.csv"),
+        row.names = FALSE
+    )
 }
 

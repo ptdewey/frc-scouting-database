@@ -1,4 +1,3 @@
-# 
 # Parses and outputs match statistics for team
 #
 # @input df: dataframe containing match data
@@ -7,9 +6,6 @@
 getTeamData <- function(df, tkey) {
     # initialize vectors
     match_number <- c()
-    team <- c()
-    t2 <- c()
-    t3 <- c()
     scores <- c()
     auto_gpp <- c()
     auto_p <- c()
@@ -31,7 +27,7 @@ getTeamData <- function(df, tkey) {
 
         # TODO: add sf and f matches?
         if (df$comp_level[i] != "qm") {
-            next 
+            next
         }
 
         # keys <- append(keysb, keysr)
@@ -77,7 +73,7 @@ getTeamData <- function(df, tkey) {
             scores <- append(scores, df$alliances$red$score[i])
 
             # ranking points
-            rp <- append(rp, df$alliances$red$rp[i])
+            rp <- append(rp, df$score_breakdown$red$rp[i])
 
         } else if (tkey %in% keysb) { # blue alliance
             # get position: 1/2/3 
@@ -118,16 +114,13 @@ getTeamData <- function(df, tkey) {
             scores <- append(scores, df$alliances$blue$score[i])
 
             # ranking points
-            rp <- append(rp, df$alliances$red$rp[i])
-
+            rp <- append(rp, df$score_breakdown$blue$rp[i])
         }
     }
 
     # output report
-    # return(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, 
-    #     auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
-    return(as.data.frame(cbind(match_number, alliance, scores, auto_gpp, auto_p, auto_dock,
-        auto_balance, tele_gpp, tele_p, tele_dock, tele_balance)))
-    # return(tibble(match_number, alliance, scores, auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp, tele_p, tele_dock, tele_balance))
+    return(as.data.frame(cbind(match_number, alliance, scores,
+        auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp,
+        tele_p, tele_dock, tele_balance, rp)))
 }
 
