@@ -44,3 +44,19 @@ getEventMatches <- function(df) {
     return(out)
 }
 
+# gets information on event's matches before event start
+# used because score_breakdown stats are not accessible before 
+# 1st match is played
+# @input df: raw matches dataframe
+get_pre_event_matches <- function(df) {
+    out <- data.frame(
+        df$comp_level, df$match_number, df$alliances$red$score,
+        df$alliances$blue$score,
+        t(simplify2array(df$alliances$red$team_keys)),
+        t(simplify2array(df$alliances$blue$team_keys))
+    )
+    colnames(out) <- c("comp_level", "match_number", "r_score", "b_score",
+        "r1", "r2", "r3", "b1", "b2", "b3")
+    return(out)
+}
+

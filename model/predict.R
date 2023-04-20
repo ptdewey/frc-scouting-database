@@ -35,6 +35,7 @@ subset_played_unplayed <- function(event_key, api_key) {
     return(list(event_matches_played, event_matches_unplayed))
 }
 
+
 # Fetch expected contribution for each team in a match
 # (pull prior info?)
 # @input alliance_teams: list of teams on alliance
@@ -54,7 +55,7 @@ get_alliance_opr <- function(alliance_teams, opr_df) {
 get_alliance_rp_opr <- function(alliance_teams, opr_df) {
     opr_sum <- 0
     for (team_key in alliance_teams) {
-        opr_sum <- opr_sum + opr_df[which(opr_df$team == team_key), ]$rp_opr
+        opr_sum <- opr_sum + opr_df[which(opr_df$team == team_key), ]$rp_cr
     }
     return(opr_sum)
 }
@@ -77,37 +78,45 @@ get_winner <- function(r_v, b_v) {
 # Output predicted match outcomes
 # @input subset_event_matches: list of matches subset into train/test etc.
 # @input opr_df: dataframe containing opr information to pull from
-get_predictions <- function(subset_event_matches, opr_df) {
-    event_matches_test <- subset_event_matches
+get_predictions <- function(event_matches_test, opr_df) {
     red_test <- select(event_matches_test, c(r1, r2, r3))
     blue_test <- select(event_matches_test, c(b1, b2, b3))
 
     # get team estimated contributions
     # TODO: deal with potential case of no matches (i.e. set prior opr rating)
-    blue_opr <- c()
     red_opr <- c()
+    red_rp <- c()
+    blue_opr <- c()
+    blue_rp <- c()
     for (i in seq_along(event_matches_test$match_number)) {
         opr_sum <- 0
+        rp_sum <- 0
         for (team in red_test[i, ]) {
             opr_sum <- opr_sum + opr_df[which(opr_df$team == team), ]$opr
+            rp_sum <- rp_sum + opr_df[which(opr_df$team == team), ]$rp_cr
         }
         red_opr <- append(red_opr, opr_sum)
+        red_rp <- append(red_rp, rp_sum)
         opr_sum <- 0
+        rp_sum <- 0
         for (team in blue_test[i, ]) {
             opr_sum <- opr_sum + opr_df[which(opr_df$team == team), ]$opr
+            rp_sum <- rp_sum + opr_df[which(opr_df$team == team), ]$rp_cr
         }
         blue_opr <- append(blue_opr, opr_sum)
+        blue_rp <- append(blue_rp, rp_sum)
     }
 
     pred_test <- cbind(red_test, blue_test) %>%
         mutate(r_pred_score = red_opr[seq_along(event_matches_test[, 1])]) %>%
         mutate(b_pred_score = blue_opr[seq_along(event_matches_test[, 1])]) %>%
         mutate(pred_winner = get_winner(r_pred_score, b_pred_score)) %>%
-        mutate(pred_winning_margin = abs(r_pred_score - b_pred_score))
+        mutate(pred_winning_margin = abs(r_pred_score - b_pred_score)) %>%
+        mutate(r_pred_rp = red_rp[seq_along(event_matches_test[, 1])]) %>%
+        mutate(b_pred_rp = blue_rp[seq_along(event_matches_test[, 1])])
 
     # TODO: predict ranks
     pred_ranks <- 0
-
 
     return(list(pred_test, pred_ranks))
 }
