@@ -29,8 +29,10 @@ getOpr <- function(df, event_teams) {
     rp <- c(df$r_rp, df$b_rp)
 
     # create design matrix
-    X <- matrix(0, nrow = length(df$match_number)*2, ncol = length(event_teams))
-    for (i in 1:(length(df$match_number)*2)) {
+    X <- matrix(0, nrow = length(df$match_number) * 2,
+        ncol = length(event_teams)
+    )
+    for (i in 1:(length(df$match_number) * 2)) {
         X[i, which(event_teams %in% alliances[i, ])] <- 1
     }
 
@@ -51,6 +53,11 @@ getOpr <- function(df, event_teams) {
     return(team_contrib %>% arrange(desc(opr)))
 }
 
+# get standard deviation of opr ratings per team
+# remove one match then calculate opr, repeat for each match
+# then calculate sd of those ratings
+# @input df: dataframe from getEventMatches()
+# @input event_teams: list of teams at event
 get_opr_sd <- function(df, event_teams) {
 
     # remove unplayed matches
@@ -97,3 +104,4 @@ get_opr_sd <- function(df, event_teams) {
     )
     return(team_opr_df)
 }
+
