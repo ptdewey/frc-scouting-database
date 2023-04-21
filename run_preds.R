@@ -46,6 +46,8 @@ for (event_key in filtered_keys) {
 
     out <- get_predictions(matches_df, opr_df)[1]
     # write.csv(out, glue("output/{event_key}/{event_key}_predictions.csv"))
+    # TODO: add timecode or some other unique metric to predictions to allow multiple
+    # copies of prediction files
     write.csv(out, glue("output/{event_key}_predictions.csv"))
 
     matches <- subset_played_unplayed(event_key, api_key)
