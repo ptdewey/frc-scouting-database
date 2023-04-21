@@ -3,9 +3,9 @@
 "2","17","blue","frc5724","frc5472","frc4206","164","13","34","None","Level","65","95","None","Level","4"
 "3","30","red","frc1710","frc3928","frc5724","76","10","16","None","Level","33","35","Docked","NotLevel","0"
 "4","40","blue","frc5724","frc5460","frc9293","159","15","33","None","Level","64","86","Docked","Level","4"
-"5","56","blue","frc5216","frc5724","frc2883","142","15","36","None","Level","56","86",NA,"Level","1"
-"6","66","blue","frc100","frc5724","frc9136","120","12","27","None","Level","51","73",NA,"Level","1"
-"7","88","blue","frc4201","frc5724","frc6081","-1",NA,NA,NA,NA,NA,NA,NA,NA,NA
-"8","101","red","frc3082","frc5724","frc7769","-1",NA,NA,NA,NA,NA,NA,"Docked",NA,NA
-"9","110","red","frc5724","frc1477","frc144","-1",NA,NA,NA,NA,NA,NA,"None",NA,NA
-"10","121","blue","frc4226","frc4613","frc5724","-1",NA,NA,NA,NA,NA,NA,"Docked",NA,NA
+"5","56","blue","frc5216","frc5724","frc2883","142","15","36","None","Level","56","86","Docked","Level","1"
+"6","66","blue","frc100","frc5724","frc9136","120","12","27","None","Level","51","73","Docked","Level","1"
+"7","88","blue","frc4201","frc5724","frc6081","169","30","51","Docked","Level","56","78","Park","Level","4"
+"8","101","red","frc3082","frc5724","frc7769","133","18","36","Docked","Level","50","72","Docked","Level","2"
+"9","110","red","frc5724","frc1477","frc144","137","19","28","None","Level","66","74","None","NotLevel","1"
+"10","121","blue","frc4226","frc4613","frc5724","141","21","42","Docked","Level","53","67","Docked","NotLevel","2"

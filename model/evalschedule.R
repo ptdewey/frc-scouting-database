@@ -98,10 +98,11 @@ eval_schedule_difficulty <- function(team_key, df, opr_df) {
                 rp_diff = r_rp - b_rp
             )
         } else { # team is on blue alliance
-            if (teams[i, ]$team_index == 1) teams[i, ]$r1 <- "frc0"
-            if (teams[i, ]$team_index == 2) teams[i, ]$r2 <- "frc0"
-            if (teams[i, ]$team_index == 3) teams[i, ]$r3 <- "frc0"
-            red_alliance_teams <- c(teams[i, ]$r1, teams[i, ]$r2, teams[i, ]$r3)
+            if (teams[i, ]$team_index == 1) teams[i, ]$b1 <- "frc0"
+            if (teams[i, ]$team_index == 2) teams[i, ]$b2 <- "frc0"
+            if (teams[i, ]$team_index == 3) teams[i, ]$b3 <- "frc0"
+            red_alliance_teams  <- c(
+                teams[i, ]$r1, teams[i, ]$r2, teams[i, ]$r3)
             blue_alliance_teams <- c(
                 teams[i, ]$b1, teams[i, ]$b2, teams[i, ]$b3)
             r_sum <- get_alliance_opr(red_alliance_teams, opr_df)

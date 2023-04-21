@@ -60,14 +60,21 @@ get_event_data <- function(event_key, api_key) {
 #
 # Output spreadsheet from multiple events
 #
-get_multi_event_data <- function(event_keys, api_key) {
+get_multi_event_data <- function(events_df, api_key) {
+    event_keys <- get_filtered_events(events_df)$key
+    in_progress <- get_in_progress_events(events_df)
     for (event_key in event_keys) {
         print(event_key)
         if (!dir.exists(glue("output/{event_key}"))) {
             if (!(is.data.frame(get_event_data(event_key, api_key)))) {
                 event_keys <- event_keys[event_keys != event_key]
             }
-            Sys.sleep(0.05)
+            Sys.sleep(0.01)
+        } else if (event_key %in% in_progress$key) {
+            if (!(is.data.frame(get_event_data(event_key, api_key)))) {
+                event_keys <- event_keys[event_keys != event_key]
+            }
+            Sys.sleep(0.01)
         }
     }
     merged <- merge_events(event_keys)

@@ -31,6 +31,27 @@ get_filtered_events <- function(events_df) {
         filter(event_type != 99) # remove post-season events
 
     # TODO: try to use non-simple output parameters to better filter this
+    # different api call
+    type_2 <- events_df$key[which(events_df$event_type == 2)]
+    type_5 <- events_df$key[which(events_df$event_type == 5)]
+    for (event in type_2) {
+        if (TRUE %in% grepl(event, type_5)) {
+            events_df <- events_df[which(events_df$key != event), ]
+        }
+        # print(which(grepl(event, type_5) == FALSE))
+    }
+    return(events_df)
+}
+
+# get only in progress events
+# @input events_df: dataframe from get_event_list
+get_in_progress_events <- function(events_df) {
+    events_df %<>%
+        filter(start_date < Sys.Date()) %>%
+        filter(end_date > Sys.Date()) %>%
+        filter(event_type != 100) %>% # remove pre-season events
+        filter(event_type != 99) # remove post-season events
+
     type_2 <- events_df$key[which(events_df$event_type == 2)]
     type_5 <- events_df$key[which(events_df$event_type == 5)]
     for (event in type_2) {
