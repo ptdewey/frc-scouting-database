@@ -1,0 +1,11 @@
+"","match_number","alliance","team1","team2","team3","scores","auto_gpp","auto_p","auto_dock","auto_balance","tele_gpp","tele_p","tele_dock","tele_balance","rp"
+"1","4","blue","frc702","frc4571","frc7657","74","9","24","None","Level","28","40","Park","Level","0"
+"2","15","blue","frc4571","frc2910","frc4451","166","20","38","None","Level","63","93","Docked","Level","2"
+"3","30","red","frc3467","frc4571","frc6800","168","16","34","None","Level","69","99","Docked","Level","4"
+"4","47","red","frc7258","frc2194","frc4571","127","12","30","None","Level","42","72",NA,"Level","2"
+"5","62","blue","frc4571","frc3005","frc599","144","15","36","None","Level","53","83",NA,"Level","1"
+"6","70","blue","frc2383","frc59","frc4571","-1",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"7","80","red","frc6722","frc4571","frc2714","-1",NA,NA,NA,NA,NA,NA,"Park",NA,NA
+"8","96","blue","frc1902","frc968","frc4571","-1",NA,NA,NA,NA,NA,NA,"Docked",NA,NA
+"9","106","red","frc4571","frc5427","frc67","-1",NA,NA,NA,NA,NA,NA,"Docked",NA,NA
+"10","120","red","frc4571","frc5801","frc1622","-1",NA,NA,NA,NA,NA,NA,NA,NA,NA

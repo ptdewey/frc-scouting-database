@@ -5,5 +5,4 @@
 *.ipynb_checkpoints
 *test*
 requests.sh
-output/
 
