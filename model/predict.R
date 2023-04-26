@@ -61,11 +61,6 @@ get_alliance_rp_opr <- function(alliance_teams, opr_df) {
 }
 
 
-# Generate simulated match for two arbitrary alliances
-gen_match <- function() {
-    # TODO:
-}
-
 # local helper function to determine match outcome
 get_winner <- function(r_v, b_v) {
     out <- r_v - b_v
