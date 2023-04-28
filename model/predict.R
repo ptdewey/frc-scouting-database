@@ -61,11 +61,6 @@ get_alliance_rp_opr <- function(alliance_teams, opr_df) {
 }
 
 
-# Generate simulated match for two arbitrary alliances
-gen_match <- function() {
-    # TODO:
-}
-
 # local helper function to determine match outcome
 get_winner <- function(r_v, b_v) {
     out <- r_v - b_v
@@ -160,14 +155,16 @@ gen_pred_elims <- function(raw_event_matches, opr_df) {
 # @input preds: dataframe of predictions
 eval_predictions <- function(event_matches, preds) {
     matches_played <- as.data.frame(event_matches)
-    match_nums <- preds[, 1]
-    if (length(event_matches$matches_played) > length(preds[, 1])) {
+    preds %<>% rename(match_number = names(.)[1])
+    if (length(event_matches$matches_played) > length(preds$match_number)) {
         matches_played <- matches_played[
-            which(match_nums == matches_played$match_number), ]
+            which(preds$match_number == matches_played$match_number), ]
     } else {
         preds <- preds[
-            which(match_nums == matches_played$match_number), ]
+            which(preds$match_number == matches_played$match_number), ]
     }
+
+
     red <- select(preds, c(r1, r2, r3))
     blue <- select(preds, c(b1, b2, b3))
     eval <- cbind(red, blue) %>%
