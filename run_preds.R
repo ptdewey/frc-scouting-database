@@ -22,7 +22,7 @@ event_keys <- c("2023arc", "2023cur", "2023dal",
 )
 for (event_key in event_keys) {
     print(glue("Getting data for {event_key}..."))
-    raw_matches <- getEventMatchesRaw(event_key, api_key)
+    raw_matches <- get_event_matches_raw(event_key, api_key)
 
     ## dfferent match subsetting methods
     # TODO: figure out if anything is needed beyond pre_event info?
@@ -30,7 +30,7 @@ for (event_key in event_keys) {
     # matches <- subset_played_unplayed(event_key, api_key)
     # matches_df <- as.data.frame(matches[1])
     matches_df <- get_pre_event_matches(raw_matches)
-    # matches_df <- getEventMatches(raw_matches)
+    # matches_df <- get_event_matches(raw_matches)
 
     opr_df <- read_csv(glue("output/{event_key}_filtered.csv"))
     opr_df$opr <- opr_df$max_opr
@@ -47,7 +47,7 @@ for (event_key in event_keys) {
     write.csv(out, glue("{event_dir}/{event_key}_predictions.csv"))
 
     # schedule stuff
-    event_teams <- getTeamList(event_key, api_key)
+    event_teams <- get_team_list(event_key, api_key)
     schedules <- tibble(
         team = character(),
         opr_difficulty_rating = numeric(),
@@ -63,6 +63,8 @@ for (event_key in event_keys) {
     # Subset matches to allow evaluating predictions
     matches <- subset_played_unplayed(event_key, api_key)
 
+    # TODO: add flag as input param to allow evaluation of predictions
+
     # evaluate predictions
     print(glue("Evaluating predictions for {event_key}..."))
     # check all matching predictions in predictions directory
@@ -73,11 +75,6 @@ for (event_key in event_keys) {
         write.csv(eval_predictions(matches[1], preds),
             glue("{dir}/{event_key}_evaluated_predictions.csv"))
     }
-
-    # old code
-    # preds <- read_csv(glue("output/{event_key}_predictions.csv"))
-    # write.csv(eval_predictions(matches[1], preds),
-    #     glue("output/{event_key}_evaluated_predictions.csv"))
 
     print("...Done!")
 }

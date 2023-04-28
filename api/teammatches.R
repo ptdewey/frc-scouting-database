@@ -2,7 +2,7 @@ library(tibble)
 library(glue)
 
 # create dataframe containing all matches from event
-# @input df: raw event matches dataframe from getEventMatchesRaw()
+# @input df: raw event matches dataframe from get_event_matches_raw()
 # @input team_key: team key (i.e. 'frc254')
 get_team_matches <- function(df, team_key) {
     # get alliances
@@ -41,7 +41,7 @@ get_team_match_numbers <- function(df, team_key) {
 
 # create dataframe containing match numbers a team is in, teammates,
 #and position index
-# @input df: raw event matches dataframe from getEventMatchesRaw()
+# @input df: raw event matches dataframe from get_event_matches_raw()
 # @input team_key: team key (i.e. 'frc254')
 get_team_index <- function(df, team_key) {
     out <- tibble()

@@ -151,10 +151,11 @@ gen_pred_elims <- function(raw_event_matches, opr_df) {
 }
 
 # evaluate accuracy of predictions
-# @input subset_event_matches: dataframe containing predicted matches
+# @input event_matches: dataframe containing matches
 # @input preds: dataframe of predictions
 eval_predictions <- function(event_matches, preds) {
     matches_played <- as.data.frame(event_matches)
+    matches_played %<>% filter(comp_level == "qm")
     preds %<>% rename(match_number = names(.)[1])
     if (length(event_matches$matches_played) > length(preds$match_number)) {
         matches_played <- matches_played[
