@@ -4,7 +4,7 @@ library(glue)
 # create dataframe containing all matches from event
 # @input df: raw event matches dataframe from getEventMatchesRaw()
 # @input team_key: team key (i.e. 'frc254')
-getTeamMatches <- function(df, team_key) {
+get_team_matches <- function(df, team_key) {
     # get alliances
     keysr <- as.data.frame(t(simplify2array(df$alliances$red$team_keys)))
     keysb <- as.data.frame(t(simplify2array(df$alliances$blue$team_keys)))
@@ -18,7 +18,7 @@ getTeamMatches <- function(df, team_key) {
     oldw <- getOption("warn")
     options(warn = -1)
     out <- df[match_numbers, ] %>%
-        getTeamData(team_key) %>%
+        get_team_data(team_key) %>%
         as.data.frame()
     options(warn = oldw)
 

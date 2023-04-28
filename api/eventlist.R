@@ -41,3 +41,4 @@ get_filtered_events <- function(events_df) {
     }
     return(events_df)
 }
+

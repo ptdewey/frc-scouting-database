@@ -15,8 +15,8 @@ source("api/teamopr.R")
 # @input event_key: tba event key
 # @input api_key: tba api key
 subset_train_test <- function(event_key, api_key) {
-    raw_event_matches <- getEventMatchesRaw(event_key, api_key)
-    event_matches <- getEventMatches(raw_event_matches)
+    raw_event_matches <- get_event_matches_raw(event_key, api_key)
+    event_matches <- get_event_matches(raw_event_matches)
     trainobs <- .7 * length(event_matches$match_number)
     event_matches_train <- event_matches[1:trainobs, ]
     event_matches_test <- event_matches[-(1:trainobs), ]
@@ -26,8 +26,8 @@ subset_train_test <- function(event_key, api_key) {
 # subset played vs unplayed (hypothetical) matches
 # use with for incomplete event - predict day 2 match outcomes
 subset_played_unplayed <- function(event_key, api_key) {
-    raw_event_matches <- getEventMatchesRaw(event_key, api_key)
-    event_matches <- getEventMatches(raw_event_matches)
+    raw_event_matches <- get_event_matches_raw(event_key, api_key)
+    event_matches <- get_event_matches(raw_event_matches)
     event_matches_played <- event_matches[
     which(event_matches$r_score != -1), ]
     event_matches_unplayed <- event_matches[
@@ -124,7 +124,7 @@ get_predictions <- function(event_matches_test, opr_df) {
 # generate predictions for elimination matches
 gen_pred_elims <- function(raw_event_matches, opr_df) {
     # TODO: requires simulator
-    matches <- getEventMatches(matches)
+    matches <- get_event_matches(matches)
     matches <- matches[which(matches$comp_level != "qm"), ]
     matches <- matches[which(matches$r1 != "frc0")]
     red_test <- select(matches, c(r1, r2, r3))

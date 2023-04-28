@@ -14,13 +14,12 @@ if (!exists("api_key")) {
 }
 
 
-# event_key <- "2023arc"
 # champs division keys
 filtered_keys <- c("2023arc", "2023cur", "2023dal",
     "2023gal", "2023hop", "2023joh", "2023mil"
 )
 for (event_key in filtered_keys) {
-    raw_matches <- getEventMatchesRaw(event_key, api_key)
+    raw_matches <- get_event_matches_raw(event_key, api_key)
     # matches <- subset_played_unplayed(event_key, api_key)
     # matches_df <- as.data.frame(matches[1])
     matches_df <- get_pre_event_matches(raw_matches)

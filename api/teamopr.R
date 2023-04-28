@@ -5,7 +5,7 @@ library(dplyr)
 # calculate expected team contribution
 # @input df: all event matches dataframe from eventmatches.R
 # @input event_teams: team key "frc216"
-getOpr <- function(df, event_teams) {
+get_opr <- function(df, event_teams) {
     # remove unplayed matches
     df <- df[which(df$r_score != -1), ]
     # remove non-qualifying matches
