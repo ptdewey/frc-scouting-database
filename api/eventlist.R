@@ -33,12 +33,15 @@ get_filtered_events <- function(events_df) {
     # TODO: try to use non-simple output parameters to better filter this
     # different api call
     type_2 <- events_df$key[which(events_df$event_type == 2)]
+    type_4 <- events_df$key[which(events_df$event_type == 4)]
     type_5 <- events_df$key[which(events_df$event_type == 5)]
     for (event in type_2) {
         if (TRUE %in% grepl(event, type_5)) {
             events_df <- events_df[which(events_df$key != event), ]
         }
-        # print(which(grepl(event, type_5) == FALSE))
+    }
+    for (event in type_4) {
+        events_df <- events_df[which(events_df$key != event), ]
     }
     return(events_df)
 }
@@ -53,12 +56,15 @@ get_in_progress_events <- function(events_df) {
         filter(event_type != 99) # remove post-season events
 
     type_2 <- events_df$key[which(events_df$event_type == 2)]
+    type_4 <- events_df$key[which(events_df$event_type == 4)]
     type_5 <- events_df$key[which(events_df$event_type == 5)]
     for (event in type_2) {
         if (TRUE %in% grepl(event, type_5)) {
             events_df <- events_df[which(events_df$key != event), ]
         }
-        # print(which(grepl(event, type_5) == FALSE))
+    }
+    for (event in type_4) {
+        events_df <- events_df[which(events_df$key != event), ]
     }
     return(events_df)
 }
