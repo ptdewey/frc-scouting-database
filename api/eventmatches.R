@@ -5,7 +5,7 @@ library(glue)
 # get all matches from event, raw output form, json schema
 # @input event_key: tba event key
 # @input api_key: tba api key
-getEventMatchesRaw <- function(event_key, api_key) {
+get_event_matches_raw <- function(event_key, api_key) {
     link <- glue("'https://www.thebluealliance.com/api/v3/event/{event_key}/matches'")
     cmd <- glue("curl -X 'GET' {link} -H 'accept: application/json' -H 'X-TBA-Auth-Key: {api_key}'")
     oldw <- getOption("warn")
@@ -21,7 +21,7 @@ getEventMatchesRaw <- function(event_key, api_key) {
 
 # create dataframe containing all matches from event
 # @input df: raw event matches dataframe
-getEventMatches <- function(df) {
+get_event_matches <- function(df) {
     # create output dataframe
     out <- data.frame(df$comp_level, df$match_number, df$alliances$red$score,
         df$score_breakdown$red$autoPoints, df$score_breakdown$red$teleopPoints,
@@ -36,16 +36,16 @@ getEventMatches <- function(df) {
         df$score_breakdown$red$rp,
         df$score_breakdown$blue$rp
     )
-    colnames(out) <- c('comp_level', 'match_number', 'r_score', 'r_auto_score',
-        'r_teleop_score', 'b_score', 'b_auto_score', 'b_teleop_score',
-        'r1', 'r2', 'r3', 'b1', 'b2', 'b3', 'r_auto_gpc', 'r_tele_gpc',
-        'b_auto_gpc', 'b_tele_gpc', "r_rp", "b_rp")
+    colnames(out) <- c("comp_level", "match_number", "r_score", "r_auto_score",
+        "r_teleop_score", "b_score", "b_auto_score", "b_teleop_score",
+        "r1", "r2", "r3", "b1", "b2", "b3", "r_auto_gpc", "r_tele_gpc",
+        "b_auto_gpc", "b_tele_gpc", "r_rp", "b_rp")
 
     return(out)
 }
 
 # gets information on event's matches before event start
-# used because score_breakdown stats are not accessible before 
+# used because score_breakdown stats are not accessible before
 # 1st match is played
 # @input df: raw matches dataframe
 get_pre_event_matches <- function(df) {

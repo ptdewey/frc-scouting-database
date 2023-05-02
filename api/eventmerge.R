@@ -6,12 +6,6 @@ library(magrittr)
 library(tibble)
 library(glue)
 
-# pull_event_data <- function(event_keys) {
-#     #
-#     events <- list()
-#     return(events)
-# }
-
 # merge spreadsheets from multiple events
 # @input event_keys: list of event keys to merge
 merge_events <- function(event_keys) {

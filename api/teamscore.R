@@ -3,21 +3,17 @@
 # @input df: dataframe containing match data
 # @input tkey: team key 'frc2106'
 #
-getTeamData <- function(df, tkey) {
+get_team_data <- function(df, tkey) {
     # initialize vectors
     match_number <- c()
     scores <- c()
     auto_gpp <- c()
     auto_p <- c()
-    auto_dock <- c()
-    auto_balance <- c()
     tele_gpp <- c()
-    tele_dock <- c()
     tele_p <- c()
-    tele_balance <- c()
     alliance <- matrix(nrow = 0, ncol = 4)
     rp <- c()
-    colnames(alliance) <- c('alliance', 'team1', 'team2', 'team3')
+    colnames(alliance) <- c("alliance", "team1", "team2", "team3")
 
     # loop through all matches
     for (i in seq_along(df$match_number)) {
@@ -30,97 +26,56 @@ getTeamData <- function(df, tkey) {
             next
         }
 
-        # keys <- append(keysb, keysr)
         match_number <- append(match_number, df$match_number[i])
 
+        # TODO: add wins, opponents, opp scores
         if (tkey %in% keysr) { # red alliance
-            # get position: 1/2/3 
+            # get position: 1/2/3
             pos <- which(keysr == tkey)
-            alliance <- rbind(alliance, c('red', keysr))
+            alliance <- rbind(alliance, c("red", keysr))
             # make new dataframe for easier indexing
             sb <- df$score_breakdown$red
-            # alliance <- append(alliance, 'red')
+
+            # ranking points
+            rp <- append(rp, sb$rp[i])
 
             # AUTO
-            if (pos == 1) {
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot1[i])
-            } else if (pos == 2) {
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot2[i])
-            } else if (pos == 3){
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot3[i])
-            } else {
-                auto_dock <- append(auto_dock, '0')
-            }
-            auto_balance <- append(auto_balance, sb$autoBridgeState[i])
-            auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i]) 
+            auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i])
             auto_p <- append(auto_p, sb$autoPoints[i])
 
             # TELEOP
             tele_gpp <- append(tele_gpp, sb$teleopGamePiecePoints[i])
             tele_p <- append(tele_p, sb$teleopPoints[i])
-            if (pos == 1) {
-                tele_dock <- append(tele_dock, sb$engGameChargeStationRobot1[i])
-            } else if (pos == 2) {
-                tele_dock <- append(tele_dock, sb$endGameChargeStationRobot2[i])
-            } else if (pos == 3){
-                tele_dock <- append(tele_dock, sb$endGameChargeStationRobot3[i])
-            } else {
-                tele_dock <- append(tele_dock, '0')
-            }
-            tele_balance <- append(tele_balance, sb$endGameBridgeState[i])
 
             # TOTAL
             scores <- append(scores, df$alliances$red$score[i])
 
-            # ranking points
-            rp <- append(rp, df$score_breakdown$red$rp[i])
-
         } else if (tkey %in% keysb) { # blue alliance
-            # get position: 1/2/3 
+            # get position: 1/2/3
             pos <- which(keysb == tkey)
-            alliance <- rbind(alliance, c('blue', keysb))
+            alliance <- rbind(alliance, c("blue", keysb))
             # make new dataframe for easier indexing
             sb <- df$score_breakdown$blue
 
+            # ranking points
+            rp <- append(rp, sb$rp[i])
+
             # AUTO
-            if (pos == 1) {
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot1[i])
-            } else if (pos == 2) {
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot2[i])
-            } else if (pos == 3){
-                auto_dock <- append(auto_dock, sb$autoChargeStationRobot3[i])
-            } else {
-                auto_dock <- append(auto_dock, '0')
-            }
-            auto_balance <- append(auto_balance, sb$autoBridgeState[i])
-            auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i]) 
+            auto_gpp <- append(auto_gpp, sb$autoGamePiecePoints[i])
             auto_p <- append(auto_p, sb$autoPoints[i])
 
             # TELEOP
             tele_gpp <- append(tele_gpp, sb$teleopGamePiecePoints[i])
             tele_p <- append(tele_p, sb$teleopPoints[i])
-            if (pos == 1) {
-                tele_dock <- append(tele_dock, sb$engGameChargeStationRobot1[i])
-            } else if (pos == 2) {
-                tele_dock <- append(tele_dock, sb$endGameChargeStationRobot2[i])
-            } else if (pos == 3){
-                tele_dock <- append(tele_dock, sb$endGameChargeStationRobot3[i])
-            } else {
-                tele_dock <- append(tele_dock, '0')
-            }
-            tele_balance <- append(tele_balance, sb$endGameBridgeState[i])
 
             # TOTAL
             scores <- append(scores, df$alliances$blue$score[i])
-
-            # ranking points
-            rp <- append(rp, df$score_breakdown$blue$rp[i])
         }
     }
 
     # output report
     return(as.data.frame(cbind(match_number, alliance, scores,
-        auto_gpp, auto_p, auto_dock, auto_balance, tele_gpp,
-        tele_p, tele_dock, tele_balance, rp)))
+        auto_gpp, auto_p, tele_gpp, tele_p, rp))
+    )
 }
 
