@@ -37,8 +37,6 @@ merge_events <- function(event_keys) {
         max_auto_opr = numeric(),
         max_tele_opr = numeric(),
         rp_cr = numeric(),
-        auto_climb = integer(), # change to ratio later
-        tele_climb = integer(),
         opr1 = numeric(),
         opr2 = numeric(),
         opr3 = numeric(),
@@ -60,8 +58,6 @@ merge_events <- function(event_keys) {
             max_auto_opr = max(team_rows$auto_opr),
             max_tele_opr = max(team_rows$teleop_opr),
             rp_cr = max(team_rows$rpcr),
-            auto_climb = mean(team_rows$auto_dock),
-            tele_climb = mean(team_rows$tele_dock),
             opr1 = team_rows[1, ]$opr,
             opr2 = team_rows[2, ]$opr,
             opr3 = team_rows[3, ]$opr,

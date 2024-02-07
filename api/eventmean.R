@@ -14,29 +14,19 @@ get_event_means <- function(allteams, df, opr_df, team_key, event_key) {
     df <- df[which(df$scores != -1), ]
     n <- length(df$scores)
 
-    # TODO: remove docking stuff
-    auto_dock <- length(which(df$auto_dock == "Docked")) / n
-    auto_balance <- length(which(df$auto_balance == "Level"
-        & df$auto_dock == "Docked")) / n
-    tele_dock <- length(which(df$tele_dock == "Docked")) / n
-    tele_balance <- length(which(df$tele_balance == "Level"
-        & df$tele_dock == "Docked")) / n
-
     team_row <- which(opr_df$team == team_key)
 
-    # TODO: rename gpc opr, remove ratio
     allteams <- rbind(allteams, c(team_key,
         opr_df$opr[team_row], opr_df$auto_opr[team_row],
         opr_df$auto_gpc_opr[team_row],
-        auto_dock, auto_balance, opr_df$teleop_opr[team_row],
-        opr_df$tele_gpc_opr[team_row], tele_dock, tele_balance,
+        opr_df$teleop_opr[team_row],
+        opr_df$tele_gpc_opr[team_row], 
         opr_df$auto_opr_ratio[team_row], opr_df$rp_opr[team_row]
     ))
 
-    cols <- c("team", "opr", "auto_opr", "auto_game_piece_opr",
-        "auto_dock", "auto_level", "teleop_opr",
-        "teleop_game_piece_opr", "tele_dock", "tele_balance",
-        "auto_teleop_opr_ratio", "rpcr")
+    cols <- c("team", "opr", "auto_opr", "auto_game_piece_rating",
+        "teleop_opr", "teleop_game_piece_rating",
+        "auto_teleop_rating_ratio", "rp_rating")
     colnames(allteams) <- cols
 
     allteams %<>%

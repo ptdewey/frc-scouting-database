@@ -1,0 +1,182 @@
+"","city","country","district.abbreviation","district.display_name","district.key","district.year","end_date","event_code","event_type","key","name","start_date","state_prov","year"
+"1","Huntsville","USA",NA,NA,NA,NA,"2024-04-06","alhu",  0,"2024alhu","Rocket City Regional","2024-04-03","AL",2024
+"2","Searcy","USA",NA,NA,NA,NA,"2024-03-09","arli",  0,"2024arli","Arkansas Regional","2024-03-06","AR",2024
+"3","Lilyfield","Australia",NA,NA,NA,NA,"2024-03-17","ausc",  0,"2024ausc","Southern Cross Regional","2024-03-15","NSW",2024
+"4","Glendale","USA",NA,NA,NA,NA,"2024-02-24","azdd",100,"2024azdd","Duel in the Desert","2024-02-24","AZ",2024
+"5","Tempe","USA",NA,NA,NA,NA,"2024-03-23","azgl",  0,"2024azgl","Arizona East Regional","2024-03-20","AZ",2024
+"6","Scottsdale","USA",NA,NA,NA,NA,"2024-03-16","azva",  0,"2024azva","Arizona Valley Regional","2024-03-13","AZ",2024
+"7","Victoria","Canada",NA,NA,NA,NA,"2024-03-02","bcvi",  0,"2024bcvi","Canadian Pacific Regional","2024-02-28","BC",2024
+"8","Distrito Federal","Brazil",NA,NA,NA,NA,"2024-03-02","brbr",  0,"2024brbr","Brazil Regional","2024-02-28","DF",2024
+"9","Lancaster","USA",NA,NA,NA,NA,"2024-04-06","caav",  0,"2024caav","Aerospace Valley Regional","2024-04-03","CA",2024
+"10","Berkeley","USA",NA,NA,NA,NA,"2024-04-07","cabe",  0,"2024cabe","East Bay Regional","2024-04-04","CA",2024
+"11","Elk Grove","USA",NA,NA,NA,NA,"2024-03-16","cada",  0,"2024cada","Sacramento Regional","2024-03-13","CA",2024
+"12","Fresno","USA",NA,NA,NA,NA,"2024-03-24","cafr",  0,"2024cafr","Central Valley Regional","2024-03-21","CA",2024
+"13","El Segundo","USA",NA,NA,NA,NA,"2024-03-17","cala",  0,"2024cala","Los Angeles Regional","2024-03-14","CA",2024
+"14","Seaside","USA",NA,NA,NA,NA,"2024-03-30","camb",  0,"2024camb","Monterey Bay Regional","2024-03-27","CA",2024
+"15","Costa Mesa","USA",NA,NA,NA,NA,"2024-03-30","caoc",  0,"2024caoc","Orange County Regional","2024-03-27","CA",2024
+"16","Port Hueneme","USA",NA,NA,NA,NA,"2024-03-03","caph",  0,"2024caph","Hueneme Port Regional","2024-02-29","CA",2024
+"17","San Diego","USA",NA,NA,NA,NA,"2024-03-24","casd",  0,"2024casd","San Diego Regional presented by Qualcomm","2024-03-21","CA",2024
+"18","San Francisco","USA",NA,NA,NA,NA,"2024-03-10","casf",  0,"2024casf","San Francisco Regional","2024-03-07","CA",2024
+"19","San Jose","USA",NA,NA,NA,NA,"2024-03-03","casj",  0,"2024casj","Silicon Valley Regional","2024-02-29","CA",2024
+"20","Port Hueneme","USA",NA,NA,NA,NA,"2024-03-10","cave",  0,"2024cave","Ventura County Regional","2024-03-07","CA",2024
+"21","Petersburg","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-04-06","chcmp",  2,"2024chcmp","FIRST Chesapeake District Championship","2024-04-03","VA",2024
+"22","Houston","USA",NA,NA,NA,NA,"2024-04-20","cmptx",  4,"2024cmptx","FIRST Championship","2024-04-17","TX",2024
+"23","Colorado Springs","USA",NA,NA,NA,NA,"2024-02-24","cocs",100,"2024cocs","Colorado Scrimmage","2024-02-24","CO",2024
+"24","Denver","USA",NA,NA,NA,NA,"2024-03-23","code",  0,"2024code","Colorado Regional","2024-03-20","CO",2024
+"25","Hartford","USA",ne,New England,2024ne,2024,"2024-03-03","cthar",  1,"2024cthar","NE District Hartford Event","2024-03-01","CT",2024
+"26","Waterbury","USA",ne,New England,2024ne,2024,"2024-03-10","ctwat",  1,"2024ctwat","NE District Waterbury Event","2024-03-08","CT",2024
+"27","Orlando","USA",NA,NA,NA,NA,"2024-03-23","flor",  0,"2024flor","Orlando Regional","2024-03-20","FL",2024
+"28","Tallahassee","USA",NA,NA,NA,NA,"2024-03-16","flta",  0,"2024flta","Tallahassee Regional","2024-03-13","FL",2024
+"29","Fort Lauderdale","USA",NA,NA,NA,NA,"2024-03-02","flwp",  0,"2024flwp","South Florida Regional","2024-02-28","FL",2024
+"30","Albany","USA",pch,Peachtree,2024pch,2024,"2024-03-30","gaalb",  1,"2024gaalb","PCH District Albany Event","2024-03-28","GA",2024
+"31","Carrollton","USA",pch,Peachtree,2024pch,2024,"2024-03-23","gacar",  1,"2024gacar","PCH District Carrollton Event","2024-03-21","GA",2024
+"32","Macon","USA",pch,Peachtree,2024pch,2024,"2024-04-06","gacmp",  2,"2024gacmp","Peachtree District Championship","2024-04-04","GA",2024
+"33","Dalton","USA",pch,Peachtree,2024pch,2024,"2024-03-09","gadal",  1,"2024gadal","PCH District Dalton Event","2024-03-07","GA",2024
+"34","Lawrenceville","USA",pch,Peachtree,2024pch,2024,"2024-03-17","gagwi",  1,"2024gagwi","PCH District Gwinnett Event","2024-03-15","GA",2024
+"35","Honolulu","USA",NA,NA,NA,NA,"2024-04-06","hiho",  0,"2024hiho","Hawaii Regional","2024-04-03","HI",2024
+"36","Cedar Falls","USA",NA,NA,NA,NA,"2024-03-23","iacf",  0,"2024iacf","Iowa Regional","2024-03-20","IA",2024
+"37","Nampa","USA",NA,NA,NA,NA,"2024-03-23","idbo",  0,"2024idbo","Idaho Regional","2024-03-20","ID",2024
+"38","Chicago","USA",NA,NA,NA,NA,"2024-03-30","ilch",  0,"2024ilch","Midwest Regional","2024-03-27","IL",2024
+"39","Peoria","USA",NA,NA,NA,NA,"2024-03-16","ilpe",  0,"2024ilpe","Central Illinois Regional","2024-03-13","IL",2024
+"40","Lafayette","USA",fin,FIRST Indiana Robotics,2024fin,2024,"2024-04-07","incmp",  2,"2024incmp","FIRST Indiana State Championship","2024-04-05","IN",2024
+"41","Columbus","USA",fin,FIRST Indiana Robotics,2024fin,2024,"2024-03-17","incol",  1,"2024incol","FIN District Columbus Event","2024-03-15","IN",2024
+"42","Washington","USA",fin,FIRST Indiana Robotics,2024fin,2024,"2024-03-30","ineva",  1,"2024ineva","FIN District Washington Event presented by Toyota","2024-03-28","IN",2024
+"43","Mishawaka","USA",fin,FIRST Indiana Robotics,2024fin,2024,"2024-03-03","inmis",  1,"2024inmis","FIN District Mishawaka Event","2024-03-01","IN",2024
+"44","Plainfield","USA",fin,FIRST Indiana Robotics,2024fin,2024,"2024-03-24","inpla",  1,"2024inpla","FIN District Plainfield Event presented by Carrier","2024-03-22","IN",2024
+"45","Jerusalem","Israel",isr,FIRST Israel,2024isr,2024,"2024-03-21","iscmp",  2,"2024iscmp","FIRST Israel District Championship","2024-03-19","JM",2024
+"46","Hadera","Israel",isr,FIRST Israel,2024isr,2024,"2024-02-26","isde1",  1,"2024isde1","ISR District Event #1","2024-02-24","Haifa District",2024
+"47","Hadera","Israel",isr,FIRST Israel,2024isr,2024,"2024-02-29","isde2",  1,"2024isde2","ISR District Event #2","2024-02-27","Haifa District",2024
+"48","Hadera","Israel",isr,FIRST Israel,2024isr,2024,"2024-03-05","isde3",  1,"2024isde3","ISR District Event #3","2024-03-03","Haifa District",2024
+"49","Hadera","Israel",isr,FIRST Israel,2024isr,2024,"2024-03-07","isde4",  1,"2024isde4","ISR District Event #4","2024-03-05","Haifa District",2024
+"50","Shawnee","USA",NA,NA,NA,NA,"2024-03-16","ksla",  0,"2024ksla","Heartland Regional","2024-03-13","KS",2024
+"51","Kenner","USA",NA,NA,NA,NA,"2024-04-06","lake",  0,"2024lake","Bayou Regional","2024-04-03","LA",2024
+"52","Revere","USA",ne,New England,2024ne,2024,"2024-03-24","mabos",  1,"2024mabos","NE District Greater Boston Event","2024-03-22","MA",2024
+"53","Bridgewater","USA",ne,New England,2024ne,2024,"2024-03-10","mabri",  1,"2024mabri","NE District BSU Event","2024-03-08","MA",2024
+"54","Reading","USA",ne,New England,2024ne,2024,"2024-03-17","marea",  1,"2024marea","NE District North Shore Event","2024-03-15","MA",2024
+"55","Springfield","USA",ne,New England,2024ne,2024,"2024-03-24","mawne",  1,"2024mawne","NE District Western NE Event","2024-03-22","MA",2024
+"56","Worcester","USA",ne,New England,2024ne,2024,"2024-03-31","mawor",  1,"2024mawor","NE District WPI Event","2024-03-29","MA",2024
+"57","West Springfield","USA",ne,New England,2024ne,2024,"2024-03-03","mawsp",  1,"2024mawsp","NE District BigE Event","2024-03-01","MA",2024
+"58","Owings Mills","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-24","mdowi",  1,"2024mdowi","CHS District Owings Mills MD Event","2024-03-22","MD",2024
+"59","Severn","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-17","mdsev",  1,"2024mdsev","CHS District Severn MD Event","2024-03-15","MD",2024
+"60","Lewiston","USA",ne,New England,2024ne,2024,"2024-03-17","melew",  1,"2024melew","NE District Pine Tree Event","2024-03-15","ME",2024
+"61","Ann Arbor","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-17","miann",  1,"2024miann","FIM District Ann Arbor Event presented by DTE","2024-03-15","MI",2024
+"62","Augusta","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-03","mibat",  1,"2024mibat","FIM District Battle Creek Event presented by Parket Hannifin","2024-03-01","MI",2024
+"63","Belleville","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-09","mibel",  1,"2024mibel","FIM District Belleville Event presented by Belleville Yacht Club","2024-03-07","MI",2024
+"64","Berrien Springs","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-03","miber",  1,"2024miber","FIM District Berrien Springs Event","2024-03-01","MI",2024
+"65","Brooklyn","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-03","mibkn",  1,"2024mibkn","FIM District Jackson at Columbia Event presented by Consumers Energy Foundation","2024-03-01","MI",2024
+"66","Brownstown Charter Township","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-10","mibro",  1,"2024mibro","FIM District Woodhaven Event presented by Altair","2024-03-08","MI",2024
+"67","University Center","USA",fim,FIRST In Michigan,2024fim,2024,"2024-04-06","micmp",  2,"2024micmp","FIRST in Michigan State Championship","2024-04-04","MI",2024
+"68","Detroit","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-30","midet",  1,"2024midet","FIM District Renaissance Event presented by DTE Energy Foundation","2024-03-28","MI",2024
+"69","Detroit","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-16","midtr",  1,"2024midtr","FIM District Wayne State Event presented by Magna","2024-03-14","MI",2024
+"70","Escanaba","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-09","miesc",  1,"2024miesc","FIM District Escanaba Event presented by Highline","2024-03-07","MI",2024
+"71","Flint","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-09","mike2",  1,"2024mike2","FIM District Kettering University Event #2","2024-03-07","MI",2024
+"72","Grand Rapids","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-30","miken",  1,"2024miken","FIM District Kentwood Event presented by Dematic","2024-03-28","MI",2024
+"73","Flint","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-02","miket",  1,"2024miket","FIM District Kettering University Event #1","2024-02-29","MI",2024
+"74","Flint","USA",NA,NA,NA,NA,"2024-02-03","mikk",100,"2024mikk","Kettering Kitbot/Ri3D Pre-Season Event","2024-02-03","MI",2024
+"75","Lake City","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-10","milac",  1,"2024milac","FIM District Lake City Event","2024-03-08","MI",2024
+"76","Mason","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-23","milan",  1,"2024milan","FIM District Lansing Event","2024-03-21","MI",2024
+"77","Livonia","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-24","miliv",  1,"2024miliv","FIM District Livonia Event presented by Aisin","2024-03-22","MI",2024
+"78","Sault Ste. Marie","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-16","milsu",  1,"2024milsu","FIM District LSSU Event","2024-03-14","MI",2024
+"79","Warren","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-30","mimcc",  1,"2024mimcc","FIM District Macomb Event presented by DTE","2024-03-28","MI",2024
+"80","Midland","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-23","mimid",  1,"2024mimid","FIM District Midland Event presented by Dow","2024-03-21","MI",2024
+"81","Highland Charter Township","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-02","mimil",  1,"2024mimil","FIM District Milford Event presented by GM Milford Proving Ground","2024-02-29","MI",2024
+"82","Mount Pleasant","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-30","mimtp",  1,"2024mimtp","FIM District Central Michigan University Event","2024-03-28","MI",2024
+"83","Muskegon","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-16","mimus",  1,"2024mimus","FIM District Muskegon Event presented by Renk","2024-03-14","MI",2024
+"84","St. Joseph","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-09","misjo",  1,"2024misjo","FIM District St. Joseph Event presented by Whirlpool","2024-03-07","MI",2024
+"85","Troy","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-30","mitr2",  1,"2024mitr2","FIM District Troy Event #2 presented by Magna","2024-03-28","MI",2024
+"86","Troy","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-24","mitry",  1,"2024mitry","FIM District Troy Event #1 presented by Aptiv","2024-03-22","MI",2024
+"87","Traverse City","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-16","mitvc",  1,"2024mitvc","FIM District Traverse City Event presented by Cone Drive","2024-03-14","MI",2024
+"88","Allendale Charter Township","USA",fim,FIRST In Michigan,2024fim,2024,"2024-03-23","miwmi",  1,"2024miwmi","FIM District West Michigan Event","2024-03-21","MI",2024
+"89","Eagan","USA",NA,NA,NA,NA,"2024-02-18","mnbt",100,"2024mnbt","Blue Twilight Week Zero Invitational","2024-02-17","MN",2024
+"90","Duluth","USA",NA,NA,NA,NA,"2024-03-02","mndu",  0,"2024mndu","Lake Superior Regional","2024-02-28","MN",2024
+"91","Duluth","USA",NA,NA,NA,NA,"2024-03-02","mndu2",  0,"2024mndu2","Northern Lights Regional","2024-02-28","MN",2024
+"92","New Brighton","USA",NA,NA,NA,NA,"2024-02-24","mnkk",100,"2024mnkk","KnightKrawler Week Zero","2024-02-24","MN",2024
+"93","Saint Paul","USA",NA,NA,NA,NA,"2024-04-06","mnmi",  0,"2024mnmi","Minnesota 10,000 Lakes Regional","2024-04-03","MN",2024
+"94","St. Cloud","USA",NA,NA,NA,NA,"2024-04-07","mnmi2",  0,"2024mnmi2","Minnesota Granite City Regional","2024-04-04","MN",2024
+"95","Lee's Summit","USA",NA,NA,NA,NA,"2024-04-06","mokc",  0,"2024mokc","Greater Kansas City Regional","2024-04-03","MO",2024
+"96","Sedalia","USA",NA,NA,NA,NA,"2024-03-09","mose",  0,"2024mose","Central Missouri Regional","2024-03-06","MO",2024
+"97","St. Louis","USA",NA,NA,NA,NA,"2024-03-23","mosl",  0,"2024mosl","St. Louis Regional","2024-03-20","MO",2024
+"98","Bethlehem","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-04-06","mrcmp",  2,"2024mrcmp","FIRST Mid-Atlantic District Championship","2024-04-03","PA",2024
+"99","Laurel","USA",NA,NA,NA,NA,"2024-03-16","mslr",  0,"2024mslr","Magnolia Regional","2024-03-13","MS",2024
+"100","Monterrey","Mexico",NA,NA,NA,NA,"2024-03-02","mxmo",  0,"2024mxmo","Regional Monterrey presented by PrepaTec","2024-02-28","N.L.",2024
+"101","Hermosillo","Mexico",NA,NA,NA,NA,"2024-03-16","mxpu",  0,"2024mxpu","Regional Hermosillo presented by PrepaTec","2024-03-13","SON",2024
+"102","Torreón","Mexico",NA,NA,NA,NA,"2024-03-23","mxto",  0,"2024mxto","Regional Laguna presented by Peñoles","2024-03-20","Coah.",2024
+"103","Asheville","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-03-17","ncash",  1,"2024ncash","FNC District UNC Asheville Event","2024-03-15","NC",2024
+"104","Durham","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-04-07","nccmp",  2,"2024nccmp","FIRST North Carolina District State Championship","2024-04-05","NC",2024
+"105","Charlotte","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-03-24","ncmec",  1,"2024ncmec","FNC District Mecklenburg County Event","2024-03-22","NC",2024
+"106","Pembroke","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-03-10","ncpem",  1,"2024ncpem","FNC District UNC Pembroke Event","2024-03-08","NC",2024
+"107","Durham","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-03-24","ncwa2",  1,"2024ncwa2","FNC District Wake County Event","2024-03-22","NC",2024
+"108","Chapel Hill","USA",fnc,FIRST North Carolina,2024fnc,2024,"2024-03-03","ncwak",  1,"2024ncwak","FNC District Orange County Event","2024-03-01","NC",2024
+"109","Grand Forks","USA",NA,NA,NA,NA,"2024-03-09","ndgf",  0,"2024ndgf","Great Northern Regional","2024-03-06","ND",2024
+"110","West Springfield","USA",ne,New England,2024ne,2024,"2024-04-06","necmp",  2,"2024necmp","New England FIRST District Championship","2024-04-03","MA",2024
+"111","Durham","USA",ne,New England,2024ne,2024,"2024-03-30","nhdur",  1,"2024nhdur","NE District UNH Event","2024-03-28","NH",2024
+"112","Salem","USA",ne,New England,2024ne,2024,"2024-03-02","nhgrs",  1,"2024nhgrs","NE District Granite State Event","2024-02-29","NH",2024
+"113","Allentown","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-10","njall",  1,"2024njall","FMA District Allentown Event","2024-03-08","NJ",2024
+"114","Flanders","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-03","njfla",  1,"2024njfla","FMA District Mount Olive Event","2024-03-01","NJ",2024
+"115","Skillman","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-17","njski",  1,"2024njski","FMA District Montgomery Event","2024-03-15","NJ",2024
+"116","Tabernacle","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-10","njtab",  1,"2024njtab","FMA District Seneca Event","2024-03-08","NJ",2024
+"117","Washington","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-24","njwas",  1,"2024njwas","FMA District Warren Hills Event","2024-03-22","NJ",2024
+"118","Las Vegas","USA",NA,NA,NA,NA,"2024-03-30","nvlv",  0,"2024nvlv","Las Vegas Regional","2024-03-27","NV",2024
+"119","Hempstead","USA",NA,NA,NA,NA,"2024-03-23","nyli2",  0,"2024nyli2","FIRST Long Island Regional","2024-03-20","NY",2024
+"120","New York","USA",NA,NA,NA,NA,"2024-04-07","nyny",  0,"2024nyny","New York City Regional","2024-04-04","NY",2024
+"121","Rochester","USA",NA,NA,NA,NA,"2024-03-16","nyro",  0,"2024nyro","Finger Lakes Regional","2024-03-13","NY",2024
+"122","Suffern","USA",NA,NA,NA,NA,"2024-03-09","nysu",  0,"2024nysu","Hudson Valley Regional","2024-03-06","NY",2024
+"123","Albany","USA",NA,NA,NA,NA,"2024-03-23","nytr",  0,"2024nytr","New York Tech Valley Regional","2024-03-20","NY",2024
+"124","Bethpage","USA",NA,NA,NA,NA,"2024-03-03","nywz",100,"2024nywz","Regal Eagle Rampage","2024-03-03","NY",2024
+"125","Cleveland","USA",NA,NA,NA,NA,"2024-03-23","ohcl",  0,"2024ohcl","Buckeye Regional","2024-03-20","OH",2024
+"126","Cincinnati","USA",NA,NA,NA,NA,"2024-04-06","ohmv",  0,"2024ohmv","Miami Valley Regional","2024-04-03","OH",2024
+"127","Mansfield","USA",NA,NA,NA,NA,"2024-06-08","ohss", 99,"2024ohss","Shawshank Showdown","2024-06-08","OH",2024
+"128","Oklahoma City","USA",NA,NA,NA,NA,"2024-04-06","okok",  0,"2024okok","Oklahoma Regional","2024-04-03","OK",2024
+"129","Tulsa","USA",NA,NA,NA,NA,"2024-03-09","oktu",  0,"2024oktu","Green Country Regional","2024-03-06","OK",2024
+"130","Barrie","Canada",ont,Ontario,2024ont,2024,"2024-03-17","onbar",  1,"2024onbar","ONT District Georgian Event","2024-03-15","ON",2024
+"131","Mississauga","Canada",ont,Ontario,2024ont,2024,"2024-04-06","oncmp",  2,"2024oncmp","FIRST Ontario Provincial Championship","2024-04-03","ON",2024
+"132","Hamilton","Canada",ont,Ontario,2024ont,2024,"2024-03-30","onham",  1,"2024onham","ONT District McMaster University","2024-03-28","ON",2024
+"133","Newmarket","Canada",ont,Ontario,2024ont,2024,"2024-03-10","onnew",  1,"2024onnew","ONT District Newmarket Complex Event","2024-03-08","ON",2024
+"134","North Bay","Canada",ont,Ontario,2024ont,2024,"2024-03-24","onnob",  1,"2024onnob","ONT District North Bay Event","2024-03-22","ON",2024
+"135","Oshawa","Canada",ont,Ontario,2024ont,2024,"2024-03-17","onosh",  1,"2024onosh","ONT District Durham College Event","2024-03-15","ON",2024
+"136","Scarborough","Canada",ont,Ontario,2024ont,2024,"2024-03-10","onsca",  1,"2024onsca","ONT District Centennial College Event","2024-03-08","ON",2024
+"137","Toronto","Canada",ont,Ontario,2024ont,2024,"2024-03-20","ontor",  1,"2024ontor","ONT District Humber College Event","2024-03-18","ON",2024
+"138","Waterloo","Canada",ont,Ontario,2024ont,2024,"2024-03-23","onwat",  1,"2024onwat","ONT District University of Waterloo Event","2024-03-21","ON",2024
+"139","Windsor","Canada",ont,Ontario,2024ont,2024,"2024-03-30","onwin",  1,"2024onwin","ONT District Windsor Essex Great Lakes Event","2024-03-28","ON",2024
+"140","Oregon City","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-02","orore",  1,"2024orore","PNW District Clackamas Academy Event","2024-02-29","OR",2024
+"141","Salem","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-09","orsal",  1,"2024orsal","PNW District Oregon State Fairgrounds Event","2024-03-07","OR",2024
+"142","Wilsonville","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-23","orwil",  1,"2024orwil","PNW District Wilsonville Event","2024-03-21","OR",2024
+"143","Bensalem","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-24","paben",  1,"2024paben","FMA District Bensalem Event","2024-03-22","PA",2024
+"144","Pittsburgh","USA",NA,NA,NA,NA,"2024-03-02","paca",  0,"2024paca","Greater Pittsburgh Regional","2024-02-28","PA",2024
+"145","Horsham","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-03","pahat",  1,"2024pahat","FMA District Hatboro-Horsham Event","2024-03-01","PA",2024
+"146","Philadelphia","USA",fma,FIRST Mid-Atlantic,2024fma,2024,"2024-03-17","paphi",  1,"2024paphi","FMA District Springside Chestnut Hill Event","2024-03-15","PA",2024
+"147","Portland","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-04-06","pncmp",  2,"2024pncmp","Pacific Northwest FIRST District Championship","2024-04-03","OR",2024
+"148","Quebec","Canada",NA,NA,NA,NA,"2024-03-03","qcmo",  0,"2024qcmo","Festival de Robotique Regional","2024-03-01","QC",2024
+"149","South Kingstown","USA",ne,New England,2024ne,2024,"2024-03-16","rikin",  1,"2024rikin","NE District URI Event","2024-03-14","RI",2024
+"150","Anderson","USA",pch,Peachtree,2024pch,2024,"2024-03-09","scand",  1,"2024scand","PCH District Anderson Event presented by MAGNA","2024-03-07","SC",2024
+"151","N. Charleston","USA",pch,Peachtree,2024pch,2024,"2024-03-23","sccha",  1,"2024sccha","PCH District Charleston Event","2024-03-21","SC",2024
+"152","Knoxville","USA",NA,NA,NA,NA,"2024-03-06","tnkn",  0,"2024tnkn","Smoky Mountains Regional","2024-03-03","TN",2024
+"153","İstanbul","Türkiye",NA,NA,NA,NA,"2024-03-21","tuhc",  0,"2024tuhc","Haliç Regional","2024-03-19","İstanbul",2024
+"154","İstanbul","Türkiye",NA,NA,NA,NA,"2024-03-07","tuis",  0,"2024tuis","İstanbul Regional","2024-03-05","İstanbul",2024
+"155","İstanbul","Türkiye",NA,NA,NA,NA,"2024-03-10","tuis2",  0,"2024tuis2","Bosphorus Regional","2024-03-08","İstanbul",2024
+"156","İstanbul","Türkiye",NA,NA,NA,NA,"2024-03-24","tuis3",  0,"2024tuis3","Marmara Regional","2024-03-22","İstanbul",2024
+"157","Amarillo","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-30","txama",  1,"2024txama","FIT District Amarillo Event","2024-03-28","TX",2024
+"158","Belton","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-09","txbel",  1,"2024txbel","FIT District Belton Event","2024-03-07","TX",2024
+"159","Friendswood","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-30","txcle",  1,"2024txcle","FIT District Space City @ Friendswood Event","2024-03-28","TX",2024
+"160","Houston","USA",fit,FIRST In Texas,2024fit,2024,"2024-04-06","txcmp",  2,"2024txcmp","FIRST In Texas District Championship","2024-04-03","TX",2024
+"161","Dallas","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-23","txdal",  1,"2024txdal","FIT District Dallas Event","2024-03-21","TX",2024
+"162","Fort Worth","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-16","txfor",  1,"2024txfor","FIT District Fort Worth Event","2024-03-14","TX",2024
+"163","Houston","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-24","txhou",  1,"2024txhou","FIT District Houston Event","2024-03-22","TX",2024
+"164","Katy","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-02","txkat",  1,"2024txkat","FIT District Katy Event","2024-02-29","TX",2024
+"165","Plano","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-10","txpla",  1,"2024txpla","FIT District Plano Event","2024-03-08","TX",2024
+"166","San Antonio","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-16","txsan",  1,"2024txsan","FIT District San Antonio Event","2024-03-14","TX",2024
+"167","Waco","USA",fit,FIRST In Texas,2024fit,2024,"2024-03-02","txwac",  1,"2024txwac","FIT District Waco Event","2024-02-29","TX",2024
+"168","West Valley City","USA",NA,NA,NA,NA,"2024-03-02","utwv",  0,"2024utwv","Utah Regional","2024-02-28","UT",2024
+"169","Ashland","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-03","vaash",  1,"2024vaash","CHS District Ashland VA Event","2024-03-01","VA",2024
+"170","Blacksburg","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-03","vabla",  1,"2024vabla","CHS District Blacksburg VA Event","2024-03-01","VA",2024
+"171","Falls Church","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-24","vafal",  1,"2024vafal","CHS District Falls Church VA Event presented by Department of Energy","2024-03-22","VA",2024
+"172","Glen Allen","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-17","vagle",  1,"2024vagle","CHS District Glen Allen VA Event","2024-03-15","VA",2024
+"173","Portsmouth","USA",chs,FIRST Chesapeake,2024chs,2024,"2024-03-10","vapor",  1,"2024vapor","CHS District Portsmouth VA Event","2024-03-08","VA",2024
+"174","Kent","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-10","waahs",  1,"2024waahs","PNW District Auburn Event","2024-03-08","WA",2024
+"175","Bonney Lake","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-17","wabon",  1,"2024wabon","PNW District Bonney Lake Event","2024-03-15","WA",2024
+"176","Bellevue","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-24","wasam",  1,"2024wasam","PNW District Sammamish Event","2024-03-22","WA",2024
+"177","Snohomish","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-03","wasno",  1,"2024wasno","PNW District Glacier Peak Event","2024-03-01","WA",2024
+"178","Yakima","USA",pnw,Pacific Northwest,2024pnw,2024,"2024-03-16","wayak",  1,"2024wayak","PNW District SunDome Event","2024-03-14","WA",2024
+"179","La Crosse","USA",NA,NA,NA,NA,"2024-04-06","wila",  0,"2024wila","Seven Rivers Regional","2024-04-03","WI",2024
+"180","Milwaukee","USA",NA,NA,NA,NA,"2024-03-17","wimi",  0,"2024wimi","Wisconsin Regional","2024-03-14","WI",2024
+"181","TBD","China",NA,NA,NA,NA,"2024-03-23","zhha",  0,"2024zhha","China Regional (CHINA TEAMS PLEASE PREFERENCE THIS EVENT)","2024-03-20","BJ",2024
