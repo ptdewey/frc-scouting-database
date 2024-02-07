@@ -30,14 +30,15 @@ if (!exists("event_key")) {
     }
 }
 
+# change year as desired
+# year <- 2024
+year <- substring(Sys.Date(), 1, 4) # or use this for current year
+
 # merge event data
-year <- 2024
 events_df <- get_event_list(year, api_key)
-write.csv(events_df, "events2024.csv")
 event_keys <- get_filtered_events(events_df)$key
 # TEST: Uncomment this for testing once preseason events start
 # event_keys <- get_preseason_events(events_df)$key
-print(event_keys)
 
 # PERF: computationally intensive
 merged <- get_multi_event_data(events_df, api_key)

@@ -18,15 +18,14 @@ get_event_means <- function(allteams, df, opr_df, team_key, event_key) {
 
     allteams <- rbind(allteams, c(team_key,
         opr_df$opr[team_row], opr_df$auto_opr[team_row],
-        opr_df$auto_gpc_opr[team_row],
         opr_df$teleop_opr[team_row],
-        opr_df$tele_gpc_opr[team_row], 
-        opr_df$auto_opr_ratio[team_row], opr_df$rp_opr[team_row]
+        # opr_df$auto_opr_ratio[team_row],
+        opr_df$rp_opr[team_row]
     ))
 
-    cols <- c("team", "opr", "auto_opr", "auto_game_piece_rating",
-        "teleop_opr", "teleop_game_piece_rating",
-        "auto_teleop_rating_ratio", "rp_rating")
+    cols <- c("team", "opr", "auto_opr",
+        # "auto_teleop_rating_ratio",
+        "teleop_opr", "rp_rating")
     colnames(allteams) <- cols
 
     allteams %<>%
