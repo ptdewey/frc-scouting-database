@@ -22,6 +22,15 @@ get_event_list <- function(year, api_key) {
     return((system(cmd_call, intern = TRUE) %>% fromJSON()))
 }
 
+# get only pre-season events
+# @input events_df: dataframe from get_event_list
+get_preseason_events <- function(events_df) {
+    events_df %<>%
+        filter(start_date < Sys.Date()) %>%
+        filter(event_type != 99) # remove post-season events
+    return(events_df)
+}
+
 # get only played/seasonal events
 # @input events_df: dataframe from get_event_list
 get_filtered_events <- function(events_df) {

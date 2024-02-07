@@ -30,10 +30,15 @@ if (!exists("event_key")) {
     }
 }
 
+# change year as desired
+# year <- 2024
+year <- substring(Sys.Date(), 1, 4) # or use this for current year
+
 # merge event data
-year <- 2023
 events_df <- get_event_list(year, api_key)
 event_keys <- get_filtered_events(events_df)$key
+# TEST: Uncomment this for testing once preseason events start
+# event_keys <- get_preseason_events(events_df)$key
 
 # PERF: computationally intensive
 merged <- get_multi_event_data(events_df, api_key)
@@ -41,10 +46,9 @@ merged <- get_multi_event_data(events_df, api_key)
 # filtere merged data to contain only teams from one event
 
 # CHANGE THIS VARIABLE TO GET FUTURE EVENT DATA:
-# champs division keys
-filtered_keys <- c("2023arc", "2023cur", "2023dal",
-    "2023gal", "2023hop", "2023joh", "2023mil", "2023new"
-)
+filtered_keys <- c("2024vagle", "2024vaash")
+
+
 for (key in filtered_keys) {
     df <- get_filtered_multi_event_data(key, api_key)
 }
