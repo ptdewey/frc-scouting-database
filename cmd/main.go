@@ -7,8 +7,9 @@ import (
     "os"
     "os/signal"
     "path/filepath"
+    "strings"
     "syscall"
-
+    
     "github.com/bwmarrin/discordgo"
     "github.com/joho/godotenv"
     "github.com/robfig/cron/v3"
@@ -47,7 +48,6 @@ func main() {
 
     // create cron job and schedule
     c := cron.New()
-    // _, err = c.AddFunc("0 * * * *", func() { // every hour  
     // _, err = c.AddFunc("*/1 * * * *", func() { // every 1 minute
     _, err = c.AddFunc("0 8-20 * * 6,7", func() { // 8am-8pm sat, sun
         zipToDiscord(dg, channelID, sourceDir, targetZip)
@@ -85,16 +85,37 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
         return
     }
 
+    // get channel id from env
+    channelID := os.Getenv("DISCORD_CHANNEL_ID")
+
     // TODO: adapt to target specific events
-    if m.Content == ":EventsGet all" {
-        zipToDiscord(s, os.Getenv("DISCORD_CHANNEL_ID"), "../output", "./data.zip")
+    // check if message was sent in valid channel and if correct prefix was used
+    if m.ChannelID == channelID && strings.HasPrefix(m.Content, ":EventsGet") {
+        // slice message from first space to end (extract event key)
+        i := strings.Index(m.Content, " ")
+        if i == -1 { 
+            s.ChannelMessageSend(m.ChannelID, 
+                "Provide a valid event key (i.e. '2023vagle') or 'all' to get event statistics.")
+            return 
+        }
+        eventkey := m.Content[i:]
+
+        // check if event key matches
+        if eventkey == "all" {
+            s.ChannelMessageSend(m.ChannelID, "Getting data for all processed events")
+            zipToDiscord(s, channelID, "../output", "./data.zip")
+            return
+        }
+        // TODO: check other events
+        // TODO: list valid events "list" command probably
     }
 
-    // message response handles
     if m.Content == ":ping" {
-        s.ChannelMessageSend(m.ChannelID, "Pong!") 
+        s.ChannelMessageSend(m.ChannelID, "pong") 
+        return
     }
 }
+
 
 // zip source dir, send to discord in specified channel
 func zipToDiscord(s *discordgo.Session, channelID, sourceDir string, targetZipPath string) {

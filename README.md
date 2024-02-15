@@ -24,3 +24,6 @@ If you would like a Google Colab/Jupyter Notebook implementation I can make one 
 | jsonlite          | >= 1.8.4   |
 
 Powered by [The Blue Alliance](https://thebluealliance.com/)
+
+<!-- TODO: add Go dependecies, update R dependencies -->
+<!-- TODO: rework dir structure, move R stuff to subdir -->

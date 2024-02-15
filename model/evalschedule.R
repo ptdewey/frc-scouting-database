@@ -45,8 +45,8 @@ get_average_stats <- function(opr_df, individual_event_flag = FALSE) {
             auto_opr = mean(opr_df$auto_opr),
             teleop_opr = mean(opr_df$teleop_opr),
             auto_opr_ratio = mean(opr_df$auto_opr_ratio),
-            auto_gpc_opr = mean(opr_df$auto_gpc_opr),
-            tele_gpc_opr = mean(opr_df$tele_gpc_opr),
+            # auto_gpc_opr = mean(opr_df$auto_gpc_opr),
+            # tele_gpc_opr = mean(opr_df$tele_gpc_opr),
             rp_cr = mean(opr_df$rp_cr)
         )
     }
