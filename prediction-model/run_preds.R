@@ -2,10 +2,10 @@ library(tidyverse)
 library(dplyr)
 library(tibble)
 
-source("api/eventmatches.R")
-source("api/teamopr.R")
+source("../stats-app/api/eventmatches.R")
+source("../stats-app/api/teamopr.R")
+source("../stats-app/api/teamlist.R")
 source("model/predict.R")
-source("api/teamlist.R")
 source("model/evalschedule.R")
 
 # Read api key from .env
@@ -14,12 +14,13 @@ if (!exists("api_key")) {
     api_key <- Sys.getenv("API_KEY")
 }
 
+# TODO: change this for newer events
+event_keys <- c("2024vagle")
 
-# champs division keys
 
-event_keys <- c("2023arc", "2023cur", "2023dal",
-    "2023gal", "2023hop", "2023joh", "2023mil", "2023new"
-)
+# define path to output directory
+output_dir <- "../output"
+
 for (event_key in event_keys) {
     print(glue("Getting data for {event_key}..."))
     raw_matches <- get_event_matches_raw(event_key, api_key)
@@ -32,11 +33,11 @@ for (event_key in event_keys) {
     matches_df <- get_pre_event_matches(raw_matches)
     # matches_df <- get_event_matches(raw_matches)
 
-    opr_df <- read_csv(glue("output/{event_key}_filtered.csv"))
+    opr_df <- read_csv(glue("{output_dir}/{event_key}_filtered.csv"))
     opr_df$opr <- opr_df$max_opr
 
     # Create predictions directory for cleaner output
-    preds_dir <- "output/predictions"
+    preds_dir <- glue("{output_dir}/predictions")
     if (!dir.exists(preds_dir)) {
         dir.create(preds_dir)
     }
@@ -68,7 +69,7 @@ for (event_key in event_keys) {
     # evaluate predictions
     print(glue("Evaluating predictions for {event_key}..."))
     # check all matching predictions in predictions directory
-    dirs_list <- list.dirs("output/predictions", recursive = FALSE)
+    dirs_list <- list.dirs(glue("{output_dir}/predictions"), recursive = FALSE)
     dirs_list <- dirs_list[which(grepl(event_key, dirs_list))]
     for (dir in dirs_list) {
         preds <- read_csv(glue("{dir}/{event_key}_predictions.csv"))

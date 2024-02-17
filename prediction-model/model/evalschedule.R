@@ -5,9 +5,9 @@ library(jsonlite)
 library(magrittr)
 library(ggplot2)
 
-source("api/eventmatches.R")
-source("api/teammatches.R")
-source("api/teamopr.R")
+source("../stats-app/api/eventmatches.R")
+source("../stats-app/api/teammatches.R")
+source("../stats-app/api/teamopr.R")
 source("model/predict.R")
 
 # generate hypothetical "average" team with average of all stats
@@ -45,8 +45,8 @@ get_average_stats <- function(opr_df, individual_event_flag = FALSE) {
             auto_opr = mean(opr_df$auto_opr),
             teleop_opr = mean(opr_df$teleop_opr),
             auto_opr_ratio = mean(opr_df$auto_opr_ratio),
-            auto_gpc_opr = mean(opr_df$auto_gpc_opr),
-            tele_gpc_opr = mean(opr_df$tele_gpc_opr),
+            # auto_gpc_opr = mean(opr_df$auto_gpc_opr),
+            # tele_gpc_opr = mean(opr_df$tele_gpc_opr),
             rp_cr = mean(opr_df$rp_cr)
         )
     }

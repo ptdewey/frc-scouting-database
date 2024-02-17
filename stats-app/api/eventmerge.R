@@ -8,8 +8,8 @@ library(glue)
 
 # merge spreadsheets from multiple events
 # @input event_keys: list of event keys to merge
-merge_events <- function(event_keys) {
-    df <- read_csv(glue("output/{event_keys}/{event_keys}_all.csv"))
+merge_events <- function(event_keys, output_dir) {
+    df <- read_csv(glue("{output_dir}/{event_keys}/{event_keys}_all.csv"))
 
     # get list of unique teams and number of occurences
     teams <- df %>%
@@ -78,8 +78,8 @@ merge_events <- function(event_keys) {
 # Create merged output dataframe containing only teams from list
 # @input event_teams: list of teams
 # @input event_key: event key or name for ouput
-filter_merged <- function(event_teams, event_key) {
-    df <- read_csv("output/events_all.csv")
+filter_merged <- function(event_teams, event_key, output_dir) {
+    df <- read_csv(glue("{output_dir}/events_all.csv"))
     out <- df[which(df$team %in% event_teams), ]
     return(out)
 }

@@ -6,10 +6,12 @@ library(glue)
 # @input df: team matches dataframe
 # @input team_key: team identifier
 # @input event_key: event identifier
-get_event_means <- function(allteams, df, opr_df, team_key, event_key) {
+# @input output_dir: the directory containing ouput files
+get_event_means <- function(allteams, df, opr_df, team_key,
+                            event_key, output_dir) {
     # create team csv file
     # TODO: move this somewhere else
-    write.csv(df, glue("output/{event_key}/{event_key}_{team_key}.csv"))
+    write.csv(df, glue("{output_dir}/{event_key}/{event_key}_{team_key}.csv"))
     # clean out unplayed matches
     df <- df[which(df$scores != -1), ]
     n <- length(df$scores)
