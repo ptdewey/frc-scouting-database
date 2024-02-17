@@ -2,6 +2,9 @@
 # This file contains (mostly) all the functions that main.R will be calling
 #
 
+# Define main output directory
+output = "../output"
+
 #
 # produce output spreadsheets for a singular event
 #
@@ -19,11 +22,11 @@ get_event_data <- function(event_key, api_key) {
 #
 # Generate event csv files and zip
 #
-    out_dir <- glue("output/{event_key}")
+    out_dir <- glue("{output}/{event_key}")
     if (!dir.exists(glue(out_dir))) {
         dir.create(glue(out_dir))
     }
-    file.copy("output/README.md", out_dir)
+    file.copy("{output}/README.md", out_dir)
 
 #
 # Get match data for each team at event
@@ -43,15 +46,15 @@ get_event_data <- function(event_key, api_key) {
 # Get team OPRs and related stats
 
     ratings <- get_opr(get_event_matches(raw_event_matches), event_teams)
-    write.csv(ratings, glue("output/{event_key}/{event_key}_opr.csv"))
+    write.csv(ratings, glue("{output}/{event_key}/{event_key}_opr.csv"))
 
 # event-wide team stats
     allteams <- data.frame()
     for (team_key in ls(pattern = "frc")) {
         df <- get(team_key)
-        allteams <- get_event_means(allteams, df, ratings, team_key, event_key)
+        allteams <- get_event_means(allteams, df, ratings, team_key, event_key, output)
     }
-    write.csv(allteams, glue("output/{event_key}/{event_key}_all.csv"))
+    write.csv(allteams, glue("{output}/{event_key}/{event_key}_all.csv"))
 
     return(allteams)
 }
@@ -65,7 +68,7 @@ get_multi_event_data <- function(events_df, api_key) {
     in_progress <- get_in_progress_events(events_df)
     for (event_key in event_keys) {
         print(event_key)
-        if (!dir.exists(glue("output/{event_key}"))) {
+        if (!dir.exists(glue("{output}/{event_key}"))) {
             if (!(is.data.frame(get_event_data(event_key, api_key)))) {
                 event_keys <- event_keys[event_keys != event_key]
             }
@@ -77,8 +80,8 @@ get_multi_event_data <- function(events_df, api_key) {
             Sys.sleep(0.01)
         }
     }
-    merged <- merge_events(event_keys)
-    write.csv(merged, glue("output/events_all.csv"), row.names = FALSE)
+    merged <- merge_events(event_keys, output)
+    write.csv(merged, glue("{output}/events_all.csv"), row.names = FALSE)
 
     return(merged)
 }
@@ -88,8 +91,8 @@ get_multi_event_data <- function(events_df, api_key) {
 #
 get_filtered_multi_event_data <- function(event_key, api_key) {
     teamlist <- get_team_list(event_key, api_key)
-    filtered <- filter_merged(teamlist, event_key)
-    write.csv(filtered, glue("output/{event_key}_filtered.csv"),
+    filtered <- filter_merged(teamlist, event_key, output)
+    write.csv(filtered, glue("{output}/{event_key}_filtered.csv"),
         row.names = FALSE
     )
 }

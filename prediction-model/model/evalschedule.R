@@ -5,9 +5,9 @@ library(jsonlite)
 library(magrittr)
 library(ggplot2)
 
-source("api/eventmatches.R")
-source("api/teammatches.R")
-source("api/teamopr.R")
+source("../stats-app/api/eventmatches.R")
+source("../stats-app/api/teammatches.R")
+source("../stats-app/api/teamopr.R")
 source("model/predict.R")
 
 # generate hypothetical "average" team with average of all stats

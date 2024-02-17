@@ -2,6 +2,7 @@ package main
 
 import (
     "archive/zip"
+    "flag"
     "fmt"
     "io"
     "os"
@@ -9,11 +10,20 @@ import (
     "path/filepath"
     "strings"
     "syscall"
+    "time"
     
     "github.com/bwmarrin/discordgo"
     "github.com/joho/godotenv"
     "github.com/robfig/cron/v3"
 )
+
+// TODO:
+// - feat: add message with automated send indicating which events have been updates since last time
+// - feat: command to fetch current events list (currently happening and/or in sourceDir)
+// - feat: file splitter to allow larger zip uploads (size checker)
+
+
+var debug = flag.Bool("debug", false, "Enable debug mode")
 
 func main() {
     // load .env file
@@ -22,6 +32,16 @@ func main() {
         fmt.Println("Error loading .env file")
         return
     }
+
+    flag.Parse()
+    var channelID string
+    if *debug {
+        fmt.Println("Running in debug mode")
+        channelID = os.Getenv("DISCORD_CHANNEL_ID_DEBUG")
+    } else {
+        channelID = os.Getenv("DISCORD_CHANNEL_ID")
+    }
+
 
     // get token from env
     botToken := os.Getenv("DISCORD_BOT_TOKEN")
@@ -39,8 +59,7 @@ func main() {
 
     // set file path and channel id
     sourceDir := "../output"
-    targetZip := "./data.zip"
-    channelID := os.Getenv("DISCORD_CHANNEL_ID")
+    targetZip := "data.zip"
     if channelID == "" {
         fmt.Println("No channel ID found in environment.")
         return
@@ -48,10 +67,21 @@ func main() {
 
     // create cron job and schedule
     c := cron.New()
-    // _, err = c.AddFunc("*/1 * * * *", func() { // every 1 minute
-    _, err = c.AddFunc("0 8-20 * * 6,7", func() { // 8am-8pm sat, sun
+    // _, err = c.AddFunc("*/1 * * * *", func() { // every 1 minute (for testing)
+    _, err = c.AddFunc("0 8-20 * * 6,0", func() { // 8am-8pm sat, sun
+        fmt.Println("Running scheduled job. Curent time:",
+            time.Now().Format("2006-01-02 15:04:05"))
+        dg.ChannelMessageSend(channelID, 
+            "Running scheduled job.\nCurrent time: " +
+            time.Now().Format("Jan-02 03:04PM"))
         zipToDiscord(dg, channelID, sourceDir, targetZip)
     })
+
+    // check for errors starting job
+    if err != nil {
+        fmt.Println("Error scheduling task:", err)
+        return
+    }
 
     // start cron scheduler
     c.Start()
@@ -81,14 +111,21 @@ func main() {
 
 // discord message creation handler
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+    // prevent recursive messages
     if m.Author.ID == s.State.User.ID {
         return
     }
 
     // get channel id from env
-    channelID := os.Getenv("DISCORD_CHANNEL_ID")
+    // channelID := os.Getenv("DISCORD_CHANNEL_ID")
+    var channelID string
+    if *debug {
+        fmt.Println("Running in debug mode")
+        channelID = os.Getenv("DISCORD_CHANNEL_ID_DEBUG")
+    } else {
+        channelID = os.Getenv("DISCORD_CHANNEL_ID")
+    }
 
-    // TODO: adapt to target specific events
     // check if message was sent in valid channel and if correct prefix was used
     if m.ChannelID == channelID && strings.HasPrefix(m.Content, ":EventsGet") {
         // slice message from first space to end (extract event key)
@@ -98,23 +135,46 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
                 "Provide a valid event key (i.e. '2023vagle') or 'all' to get event statistics.")
             return 
         }
-        eventkey := m.Content[i:]
+        eventkey := m.Content[i + 1:]
+        sourceDir := "../output"
 
         // check if event key matches
         if eventkey == "all" {
             s.ChannelMessageSend(m.ChannelID, "Getting data for all processed events")
-            zipToDiscord(s, channelID, "../output", "./data.zip")
+            zipToDiscord(s, channelID, sourceDir, "./data.zip")
             return
-        }
-        // TODO: check other events
-        // TODO: list valid events "list" command probably
-    }
+        } else {
+            found := false
 
-    if m.Content == ":ping" {
-        s.ChannelMessageSend(m.ChannelID, "pong") 
-        return
+            // read directories from data storage dir
+            dirs, err := os.ReadDir(sourceDir)
+            if err != nil {
+                fmt.Println("Invalid data directory:", err)
+                s.ChannelMessageSend(m.ChannelID, "Failed to read data directory.")
+                return
+            }
+            
+            // check if one of the directories matches the eventKey
+            for _, dir := range dirs {
+                if dir.IsDir() && dir.Name() == eventkey {
+                    found = true
+                    break
+                }
+            }
+            
+            // no matching directory found
+            if !found {
+                s.ChannelMessageSend(m.ChannelID, "Event key does not match any existing directory.")
+                return
+            }
+
+            // create zipfile and add to discord
+            zipPath := filepath.Join(sourceDir, eventkey + ".zip")
+            zipToDiscord(s, channelID, filepath.Join(sourceDir, eventkey), zipPath)
+        }
     }
 }
+
 
 
 // zip source dir, send to discord in specified channel
@@ -158,8 +218,6 @@ func uploadToDiscord(s *discordgo.Session, channelID, filePath string) error {
         return err
     }
 
-    // TODO: send accompanying message w/time, maybe event names updated?
-    // - event names would be nice, would require reworking R output structure
     message := &discordgo.MessageSend{
         Files: []*discordgo.File{
             {
@@ -177,8 +235,6 @@ func uploadToDiscord(s *discordgo.Session, channelID, filePath string) error {
 
 // create zip file from directory
 func zipDir(source, target string) error {
-    // TODO: specified command could target specific event key
-    // TODO: update to step through output dir and zip (new?/updated?) dirs for events
     // TODO: needs way of dealing with larger zip files (send one for each event?)
 
     // delete zip if it already exists
