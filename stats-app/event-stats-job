@@ -1,0 +1,1 @@
+55 * * * * cd /stats-app; /stats-app/main.R >> /var/log/cron.log 2>&1

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  event-stats-app:
+    build: .
+    volumes:
+      - ../output:/output
+    working_dir: /stats-app
+    user: "${UID}:${GID}"
+
+
+volumes:
+  data:
