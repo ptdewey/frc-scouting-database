@@ -3,13 +3,13 @@
 #
 
 # Define main output directory
-output = "../output"
+output <- "../output"
 
 #
 # produce output spreadsheets for a singular event
 #
 get_event_data <- function(event_key, api_key) {
-# get teams from event
+    # get teams from event
     event_teams <- get_team_list(event_key, api_key)
     event_teams <- filter_dummy_teams(event_teams)
 
@@ -19,18 +19,18 @@ get_event_data <- function(event_key, api_key) {
         return(FALSE)
     }
 
-#
-# Generate event csv files and zip
-#
+    #
+    # Generate event csv files and zip
+    #
     out_dir <- glue("{output}/{event_key}")
     if (!dir.exists(glue(out_dir))) {
         dir.create(glue(out_dir))
     }
     file.copy("{output}/README.md", out_dir)
 
-#
-# Get match data for each team at event
-#
+    #
+    # Get match data for each team at event
+    #
     raw_event_matches <- get_event_matches_raw(event_key, api_key)
     event_teams <- event_teams[which(event_teams %in%
         simplify2array(raw_event_matches$alliances$red$team_keys))]
@@ -43,12 +43,12 @@ get_event_data <- function(event_key, api_key) {
     }
 
 
-# Get team OPRs and related stats
+    # Get team OPRs and related stats
 
     ratings <- get_opr(get_event_matches(raw_event_matches), event_teams)
     write.csv(ratings, glue("{output}/{event_key}/{event_key}_opr.csv"))
 
-# event-wide team stats
+    # event-wide team stats
     allteams <- data.frame()
     for (team_key in ls(pattern = "frc")) {
         df <- get(team_key)
