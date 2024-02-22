@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  events-exporter-app:
+    build: .
+    volumes:
+      - ../output:/output
+
+volumes:
+  data:
