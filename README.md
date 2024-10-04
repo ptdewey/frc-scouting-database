@@ -1,3 +1,9 @@
+## Use V2 Instead
+
+The scouting system rewrite (v2) is feature-complete with v1 now and should be used instead. ([frc-scouting-database-v2](https://github.com/ptdewey/frc-scouting-database-v2))
+
+---
+
 ## FRC Event Modeling:
 
 Welcome to a project I made to help with scouting in the First Robotics Competition.  
